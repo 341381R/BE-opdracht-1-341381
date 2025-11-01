@@ -25,6 +25,7 @@
             @if (Route::has('login'))
                 <nav class="flex items-center justify-end gap-4">
                     <a href="{{ route('Allergenen.index')}}">allergeen</a>
+                    <a href="{{ route('Magazijn.index')}}">magazijn</a>
                     @auth
                         <a
                             href="{{ url('/dashboard') }}"
