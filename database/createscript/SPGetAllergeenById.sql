@@ -10,6 +10,7 @@ BEGIN
     SELECT   ALGE.Id
             ,ALGE.Naam
             ,ALGE.Omschrijving
+            ,DATE_FORMAT(ALGE.DatumGewijzigd, '%d-%m-%y') AS DatumGewijzigd
     FROM Allergeen as ALGE
     WHERE Id = p_id;
 
