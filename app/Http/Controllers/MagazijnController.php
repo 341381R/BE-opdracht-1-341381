@@ -30,37 +30,22 @@ class MagazijnController extends Controller
      */
     public function create()
     {
-        // $data = $request->validate([
-        //     'naam' => 'required|string|max:50',
-        //     'omschrijving' => 'required|string|max:255'
-        // ]);
-
-        // $newId = $this->allergeenModel->SP_CreateAllergeen(
-        //     $data['naam'],
-        //     $data['omschrijving']
-        // );
-
-        // return redirect()->route('Allergenen.index')
-        //                  ->with('success', 'Allergeen is succesvol toegevoegd met id' . $newId);
+        //
     }
 
-    public function AllergeenInfo()
+    public function AllergeenInfo($id)
     {
-        return view('Magazijn.AllergeenInfo', [
-            'title' => 'Overzicht allergenen'
-        ]);
-
         $magazijn = $this->magazijnModel->SP_GetProductById($id);
 
-        if (!$allergeen)
+        if (!$magazijn)
         {
-            return redirect()->route('Allergenen.index')
-                             ->with('error', 'Allergeen is niet gevonden');  
+            return redirect()->route('Magazijn.index')
+                             ->with('error', 'Product is niet gevonden');  
         }
 
-        return view('Allergenen.show', [
-            'title' => 'Details Allergeen',
-            'allergeen' => $allergeen
+        return view('Magazijn.AllergeenInfo', [
+            'title' => 'Overzicht allergenen',
+            'magazijn' => $magazijn
         ]);
     }
 
@@ -77,18 +62,7 @@ class MagazijnController extends Controller
      */
     public function show($id)
     {
-        // $allergeen = $this->allergeenModel->SP_GetAllergeenById($id);
-
-        // if (!$allergeen)
-        // {
-        //     return redirect()->route('Allergenen.index')
-        //                      ->with('error', 'Allergeen is niet gevonden');  
-        // }
-
-        // return view('Allergenen.show', [
-        //     'title' => 'Details Allergeen',
-        //     'allergeen' => $allergeen
-        // ]);
+        //
     }
 
     /**

@@ -10,24 +10,31 @@
         <div class="container d-flex justify-content-center">
             <div class="col-md-8">
                 <h2 class="mb-3">{{ $title }}</h2>
-
-                <div class="card shadow-sm">
-                    <div class="card-body">
-                        <dl class="row">
-                            <dt class="col-sm-3">Naam</dt>
-                            <dd class="col-sm-9">{{ $product->Naam}}</dd>
-
-                            <dt class="col-sm-3">Omschrijving</dt>
-                            <dd class="col-sm-9">{{ $product->Omschrijving}}</dd>
-
-                            <dt class="col-sm-3">Datum gewijzigd</dt>
-                            <dd class="col-sm-9">{{ $product->DatumGewijzigd}}</dd>
-                        </dl>
-                    </div>
-                </div> 
+                <dl class="row">
+                    <h2 class="col-sm-12">Naam: {{ $magazijn->Naam}}</h>
+                    <h2 class="col-sm-12 ">Barcode: {{ $magazijn->Barcode}}</h2>
+                </dl>
+                <table class="table">
+                    <thead>
+                        <th>Naam</th>
+                        <th>Omschrijving</th>
+                    </thead>
+                    <tbody>
+                
+                        @forelse ($magazijn as $product)
+                        <tr>
+                    
+                        </tr>
+                        @empty
+                        <tr>
+                            <td colspan="3">In dit product zitten geen stoffen die een allergische reactie kunnen veroorzaken</td>
+                        </tr>
+                        @endforelse
+                    </tbody>
+                </table>
 
                 <div class="mt-3 d-flex gap-2">
-                    <a href="{{ route('Allergenen.index') }}" class="btn btn-secondary btn-sm ms-auto">Terug</a>
+                    <a href="{{ route('Magazijn.index') }}" class="btn btn-secondary btn-sm ms-auto">Terug</a>
                 </div>
             </div>
         </div>

@@ -12,4 +12,12 @@ class MagazijnModel extends Model
         // var_dump(DB::select('CALL SP_GetAllAllergenen'));
         return DB::select('CALL SP_GetAllProducts');
     }
+
+    public function SP_GetProductById($id)
+    {
+        return DB::selectOne(
+            'CALL SP_GetProductById(:id)',
+            ['id' => $id]
+        );
+    }
 }
