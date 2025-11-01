@@ -8,9 +8,9 @@ CREATE PROCEDURE SP_CreateAllergeen(
 )
 
 BEGIN
-    INSERT INTO Allergeen AS ALGE(
-        ALGE.Naam,
-        ALGE.Omschrijving)
+    INSERT INTO Allergeen (
+        Naam,
+        Omschrijving)
         VALUES (p_naam, p_omschrijving);
 
         SELECT LAST_INSERT_ID() AS new_id;
