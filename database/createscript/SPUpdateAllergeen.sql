@@ -12,7 +12,7 @@ BEGIN
     UPDATE   Allergeen AS ALGE
        SET   ALGE.Naam = p_naam
             ,ALGE.Omschrijving = p_omschrijving
-            ,ALGE.DatumGewijzigd = DATETIME(6)
+            ,ALGE.DatumGewijzigd = sysdate(6)
      WHERE   ALGE.Id = p_id;
 
      SELECT ROW_COUNT() AS affected;
