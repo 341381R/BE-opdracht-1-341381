@@ -27,6 +27,7 @@
                 <th>Omschrijving</th>
                 <th>Verwijderen</th>
                 <th>Wijzigen</th>
+                <th>Details</th>
             </thead>
             <tbody>
                 
@@ -47,6 +48,13 @@
                             @csrf
                             @method('GET')
                             <button type="submit" class="btn btn-success btn-sm">Wijzig</button>
+                        </form>
+                    </td>
+                     <td>
+                        <form action="{{ route('Allergenen.show', $allergeen->Id) }}" method="POST">
+                            @csrf
+                            @method('GET')
+                            <button type="submit" class="btn btn-warning btn-sm">Details</button>
                         </form>
                     </td>
                 </tr>

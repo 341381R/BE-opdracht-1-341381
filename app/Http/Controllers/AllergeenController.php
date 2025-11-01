@@ -64,9 +64,22 @@ class AllergeenController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(AllergeenModel $allergeenModel)
+    public function show($id)
     {
-        //
+
+        $allergeen = $this->allergeenModel->SP_GetAllergeenById($id);
+
+        if (!$allergeen)
+        {
+            return redirect()->route('Allergenen.index')
+                             ->with('error', 'Allergeen is niet gevonden');  
+        }
+
+        return view('Allergenen.show', [
+            'title' => 'Details Allergeen',
+            'allergeen' => $allergeen
+        ]);
+        // dd(all)
     }
 
     /**
@@ -76,10 +89,9 @@ class AllergeenController extends Controller
     {
         $allergenen = $this->allergeenModel->SP_GetAllergeenById($id);
         abort_if(!$allergenen, 404);
-        // dd($allergenen);
         return view('Allergenen.edit', [
             'title' => 'Allergeen wijzigen',
-            'Allergenen' => $allergenen,
+            'allergenen' => $allergenen,
         ]);
     }
 
@@ -115,7 +127,7 @@ class AllergeenController extends Controller
     public function destroy($id)
     {
  
-        $result = $this->allergeenModel->SP_DeleteAllergenen($id);
+        $result = $this->allergeenModel->SP_DeleteAllergeen($id);
         //dd($result);
         if ($result > 0)
         {

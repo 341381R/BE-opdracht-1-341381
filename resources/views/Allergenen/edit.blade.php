@@ -1,3 +1,4 @@
+@vite(['resources/css/app.css', 'resources/js/app.js'])
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -35,7 +36,7 @@
             </div>
 
             <button type="submit" class="btn btn-primary">Opslaan</button>
-            <a href="{{ route('Allergenen.index') }}" class="btn-secondary">Annuleren</a>
+            <a href="{{ route('Allergenen.index') }}" class="btn btn-secondary">Annuleren</a>
         </form>
         </div>
     </div>
