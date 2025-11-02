@@ -105,7 +105,7 @@ VALUES
 ,('Winegums', 8719587327527)
 ,('Drop Munten', 8719587322345)
 ,('Kruis Drop', 8719587322265)
-,('Zuite Ruitjes', 8719587323256);
+,('Zoute Ruitjes', 8719587323256);
 
 DROP TABLE IF EXISTS Magazijn;
 
