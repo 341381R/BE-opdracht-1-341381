@@ -18,7 +18,7 @@ DROP TABLE IF EXISTS Allergeen;
 
 CREATE TABLE IF NOT EXISTS Allergeen
 (
-     Id                 SMALLINT        UNSIGNED    NOT NULL        AUTO_INCREMENT
+     Id                 INT             UNSIGNED    NOT NULL        AUTO_INCREMENT
     ,Naam               VARCHAR(30)                 NOT NULL
     ,Omschrijving       VARCHAR(100)                NOT NULL     
     ,IsActief           BIT                         NOT NULL        DEFAULT 1
@@ -46,7 +46,7 @@ DROP TABLE IF EXISTS Leverancier;
 
 CREATE TABLE IF NOT EXISTS Leverancier
 (
-     Id                 SMALLINT        UNSIGNED    NOT NULL        AUTO_INCREMENT
+     Id                 INT             UNSIGNED    NOT NULL        AUTO_INCREMENT
     ,Naam               VARCHAR(30)                 NOT NULL
     ,ContactPersoon     VARCHAR(50)                 NOT NULL
     ,LeverancierNummer  VARCHAR(11)                 NOT NULL
@@ -77,7 +77,7 @@ DROP TABLE IF EXISTS Product;
 
 CREATE TABLE IF NOT EXISTS Product
 (
-     Id                 SMALLINT        UNSIGNED    NOT NULL        AUTO_INCREMENT
+     Id                 INT             UNSIGNED    NOT NULL        AUTO_INCREMENT
     ,Naam               VARCHAR(30)                 NOT NULL
     ,Barcode            CHAR(13)                    NOT NULL     
     ,IsActief           BIT                         NOT NULL        DEFAULT 1
@@ -111,8 +111,8 @@ DROP TABLE IF EXISTS Magazijn;
 
 CREATE TABLE IF NOT EXISTS Magazijn
 (
-     Id                                 SMALLINT        UNSIGNED    NOT NULL        AUTO_INCREMENT
-    ,ProductId                          SMALLINT        UNSIGNED    NOT NULL 
+     Id                                 INT             UNSIGNED    NOT NULL        AUTO_INCREMENT
+    ,ProductId                          INT             UNSIGNED    NOT NULL 
     ,VerpakkingsEenheidInKilogram       DECIMAL(3,1)    UNSIGNED    NOT NULL
     ,AantalAanwezig                     SMALLINT        UNSIGNED        NULL
     ,IsActief                           BIT                         NOT NULL        DEFAULT 1
@@ -148,9 +148,9 @@ DROP TABLE IF EXISTS ProductPerAllergeen;
 
 CREATE TABLE IF NOT EXISTS ProductPerAllergeen
 (
-     Id                                 SMALLINT        UNSIGNED    NOT NULL        AUTO_INCREMENT
-    ,ProductId                          SMALLINT        UNSIGNED    NOT NULL 
-    ,AllergeenId                        SMALLINT        UNSIGNED    NOT NULL
+     Id                                 INT             UNSIGNED    NOT NULL        AUTO_INCREMENT
+    ,ProductId                          INT             UNSIGNED    NOT NULL 
+    ,AllergeenId                        INT             UNSIGNED    NOT NULL
     ,IsActief                           BIT                         NOT NULL        DEFAULT 1
     ,Opmerking                          VARCHAR(255)                    NULL        DEFAULT NULL
     ,DatumAangemaakt                    DATETIME(6)                 NOT NULL        DEFAULT (SYSDATE(6))
@@ -183,9 +183,9 @@ DROP TABLE IF EXISTS ProductPerLeverancier;
 
 CREATE TABLE IF NOT EXISTS ProductPerLeverancier
 (
-     Id                                 SMALLINT        UNSIGNED    NOT NULL        AUTO_INCREMENT
-    ,LeverancierId                      SMALLINT        UNSIGNED    NOT NULL 
-    ,ProductId                          SMALLINT        UNSIGNED    NOT NULL
+     Id                                 INT             UNSIGNED    NOT NULL        AUTO_INCREMENT
+    ,LeverancierId                      INT             UNSIGNED    NOT NULL 
+    ,ProductId                          INT             UNSIGNED    NOT NULL
     ,DatumLevering                      DATE                        NOT NULL
     ,Aantal                             TINYINT         UNSIGNED    NOT NULL
     ,DatumEerstVolgendeLevering         DATE                            NULL
