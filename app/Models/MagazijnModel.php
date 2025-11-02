@@ -13,10 +13,10 @@ class MagazijnModel extends Model
         return DB::select('CALL SP_GetAllProducts');
     }
 
-    public function SP_GetProductById($id)
+    public function SP_GetAllergenenInfoProductById($id)
     {
         return DB::select(
-            'CALL SP_GetProductById(:id)',
+            'CALL SP_GetAllergenenInfoProductById(:id)',
             ['id' => $id]
         );
     }

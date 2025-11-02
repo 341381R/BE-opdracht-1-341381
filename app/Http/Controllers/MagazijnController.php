@@ -35,7 +35,7 @@ class MagazijnController extends Controller
 
     public function AllergeenInfo($id)
     {
-        $magazijn = $this->magazijnModel->SP_GetProductById($id);
+        $magazijn = $this->magazijnModel->SP_GetAllergenenInfoProductById($id);
 
         if (!$magazijn)
         {
