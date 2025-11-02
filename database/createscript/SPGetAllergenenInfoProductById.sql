@@ -1,8 +1,8 @@
-DROP PROCEDURE IF EXISTS SP_GetProductById;
+DROP PROCEDURE IF EXISTS SP_GetAllergenenInfoProductById;
 
 DELIMITER $$
 
-CREATE PROCEDURE SP_GetProductById(
+CREATE PROCEDURE SP_GetAllergenenInfoProductById(
     IN p_id INT
 )
 BEGIN
