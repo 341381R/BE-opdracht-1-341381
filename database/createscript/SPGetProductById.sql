@@ -7,17 +7,16 @@ CREATE PROCEDURE SP_GetProductById(
 )
 BEGIN
 
-    SELECT   PROD.Id
-            ,PROD.Naam
+    SELECT   PROD.Naam          AS ProductNaam
             ,PROD.Barcode
-            ,ALGE.Naam
-            ,ALGE.Omschrijving
-    FROM ProductPerAllergeen as PPAN
-    INNER JOIN Product as PROD
+            ,ALGE.Naam          AS AllergeenNaam
+            ,ALGE.Omschrijving  
+    FROM ProductPerAllergeen AS PPAN
+    INNER JOIN Product AS PROD
     ON PPAN.ProductId = PROD.Id
-    INNER JOIN Allergeen as ALGE
+    INNER JOIN Allergeen AS ALGE
     ON PPAN.AllergeenId = ALGE.Id
-    WHERE PPAN.Id = p_id;
+    WHERE PPAN.ProductId = p_id;
 
 
 END$$

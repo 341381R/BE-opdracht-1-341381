@@ -15,7 +15,7 @@ class MagazijnModel extends Model
 
     public function SP_GetProductById($id)
     {
-        return DB::selectOne(
+        return DB::select(
             'CALL SP_GetProductById(:id)',
             ['id' => $id]
         );
