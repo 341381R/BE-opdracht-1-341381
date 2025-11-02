@@ -20,17 +20,18 @@
                         <th>Omschrijving</th>
                     </thead>
                     <tbody>
-                
-                        @forelse ($magazijn as $product)
-                        <tr>
-                            <td>{{ $product->AllergeenNaam }}</td>
-                            <td>{{ $product->Omschrijving }}</td>
-                        </tr>
-                        @empty
+                        @if ($magazijn[0]->AllergeenNaam != null)
+                            @foreach ($magazijn as $product)
+                            <tr>
+                                <td>{{ $product->AllergeenNaam }}</td>
+                                <td>{{ $product->Omschrijving }}</td>
+                            </tr>
+                            @endforeach
+                        @else
                         <tr>
                             <td colspan="3">In dit product zitten geen stoffen die een allergische reactie kunnen veroorzaken</td>
                         </tr>
-                        @endforelse
+                        @endif
                     </tbody>
                 </table>
 

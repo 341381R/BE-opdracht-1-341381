@@ -11,12 +11,13 @@ BEGIN
             ,PROD.Barcode
             ,ALGE.Naam          AS AllergeenNaam
             ,ALGE.Omschrijving  
-    FROM ProductPerAllergeen AS PPAN
-    INNER JOIN Product AS PROD
+    
+    FROM Product AS PROD
+    LEFT JOIN ProductPerAllergeen AS PPAN
     ON PPAN.ProductId = PROD.Id
-    INNER JOIN Allergeen AS ALGE
+    LEFT JOIN Allergeen AS ALGE
     ON PPAN.AllergeenId = ALGE.Id
-    WHERE PPAN.ProductId = p_id;
+    WHERE PROD.Id = p_id;
 
 
 END$$
