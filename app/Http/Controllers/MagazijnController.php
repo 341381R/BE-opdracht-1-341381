@@ -49,6 +49,22 @@ class MagazijnController extends Controller
         ]);
     }
 
+    public function LeverantieInfo($id)
+    {
+        $magazijn = $this->magazijnModel->SP_GetLeverancierInfo($id);
+
+        if (!$magazijn)
+        {
+            return redirect()->route('Magazijn.index')
+                             ->with('error', 'Product is niet gevonden');  
+        }
+
+        return view('Magazijn.LeverantieInfo', [
+            'title' => 'Leveringsinformatie',
+            'magazijn' => $magazijn
+        ]);
+    }
+
     /**
      * Store a newly created resource in storage.
      */

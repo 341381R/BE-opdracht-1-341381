@@ -20,4 +20,12 @@ class MagazijnModel extends Model
             ['id' => $id]
         );
     }
+
+    public function SP_GetLeverancierInfo($id)
+    {
+        return DB::select(
+            'CALL SP_GetLeverancierInfo(:id)',
+            ['id' => $id]
+        );
+    }
 }

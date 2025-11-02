@@ -44,7 +44,7 @@
                         </form>
                     </td>
                     <td>
-                        <form action="{{ route('Magazijn.show', $product->Id) }}" method="POST">
+                        <form action="{{ route('Magazijn.LeverantieInfo', $product->Id) }}" method="POST">
                             @csrf
                             @method('GET')
                             <button type="submit" class="btn btn-primary btn-sm">?</button>

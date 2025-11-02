@@ -197,7 +197,7 @@ CREATE TABLE IF NOT EXISTS ProductPerLeverancier
     ,FOREIGN KEY(LeverancierId)         REFERENCES Leverancier(Id)
     ,FOREIGN KEY(ProductId)             REFERENCES Product(Id)
 ) ENGINE=InnoDB;
--- verander dit nog en dan is het klaar
+
 INSERT INTO ProductPerLeverancier
 (
       LeverancierId
