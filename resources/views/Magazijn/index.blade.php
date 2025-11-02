@@ -19,8 +19,6 @@
             <meta http-equiv="refresh" content="3;url={{ route('Magazijn.index') }}">
             @endif
     
-        <a href="{{ route('Magazijn.create') }}" class="btn btn-primary mt-2">Nieuwe product</a>
-    
         <table class="table">
             <thead>
                 <th>Barcode</th>

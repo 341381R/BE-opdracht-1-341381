@@ -30,6 +30,7 @@
                         @else
                         <tr>
                             <td colspan="3">In dit product zitten geen stoffen die een allergische reactie kunnen veroorzaken</td>
+                            <meta http-equiv="refresh" content="4;url={{ route('Magazijn.index') }}">
                         </tr>
                         @endif
                     </tbody>
