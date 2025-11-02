@@ -15,12 +15,15 @@ BEGIN
             ,PPLC.DatumLevering
             ,PPLC.Aantal
             ,PPLC.DatumEerstVolgendeLevering
+            ,MAGA.AantalAanwezig
     
-    FROM Product AS PROD
-    INNER JOIN ProductPerLeverancier AS PPLC
-    ON PPLC.LeverancierId = LVRC.Id
-    INNER JOIN Leverancier AS LVRC
+    FROM ProductPerLeverancier AS PPLC
+    INNER JOIN Product AS PROD
     ON PPLC.ProductId = PROD.Id
+    INNER JOIN Leverancier AS LVRC
+    ON PPLC.LeverancierId = LVRC.Id
+    INNER JOIN Magazijn AS MAGA
+    ON PROD.Id = MAGA.ProductId
     WHERE PROD.Id = p_id
     ORDER BY PPLC.DatumLevering ASC;
 

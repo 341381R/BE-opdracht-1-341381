@@ -186,9 +186,9 @@ CREATE TABLE IF NOT EXISTS ProductPerLeverancier
      Id                                 SMALLINT        UNSIGNED    NOT NULL        AUTO_INCREMENT
     ,LeverancierId                      SMALLINT        UNSIGNED    NOT NULL 
     ,ProductId                          SMALLINT        UNSIGNED    NOT NULL
-    ,DatumLevering                      DATETIME                    NOT NULL
+    ,DatumLevering                      DATE                        NOT NULL
     ,Aantal                             TINYINT         UNSIGNED    NOT NULL
-    ,DatumEerstVolgendeLevering         DATETIME                        NULL
+    ,DatumEerstVolgendeLevering         DATE                            NULL
     ,IsActief                           BIT                         NOT NULL        DEFAULT 1
     ,Opmerking                          VARCHAR(255)                    NULL        DEFAULT NULL
     ,DatumAangemaakt                    DATETIME(6)                 NOT NULL        DEFAULT (SYSDATE(6))
