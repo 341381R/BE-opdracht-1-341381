@@ -17,7 +17,8 @@ BEGIN
     ON PPAN.ProductId = PROD.Id
     LEFT JOIN Allergeen AS ALGE
     ON PPAN.AllergeenId = ALGE.Id
-    WHERE PROD.Id = p_id;
+    WHERE PROD.Id = p_id
+    ORDER BY ALGE.Naam ASC;
 
 
 END$$
