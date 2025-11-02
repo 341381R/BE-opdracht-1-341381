@@ -11,8 +11,8 @@
             <div class="col-md-8">
                 <h2 class="mb-3">{{ $title }}</h2>
                 <dl class="row">
-                    <h2 class="col-sm-12">Naam: {{ $magazijn->Naam}}</h>
-                    <h2 class="col-sm-12 ">Barcode: {{ $magazijn->Barcode}}</h2>
+                    <h2 class="col-sm-12">Naam: {{ $magazijn[0]->ProductNaam}}</h>
+                    <h2 class="col-sm-12 ">Barcode: {{ $magazijn[0]->Barcode}}</h2>
                 </dl>
                 <table class="table">
                     <thead>
@@ -23,7 +23,8 @@
                 
                         @forelse ($magazijn as $product)
                         <tr>
-                    
+                            <td>{{ $product->AllergeenNaam }}</td>
+                            <td>{{ $product->Omschrijving }}</td>
                         </tr>
                         @empty
                         <tr>
