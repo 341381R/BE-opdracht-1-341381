@@ -32,6 +32,8 @@ Route::get('Magazijn/{id}/AllergeenInfo', [MagazijnController::class, 'Allergeen
 
 Route::get('Magazijn/{id}/LeverantieInfo', [MagazijnController::class, 'LeverantieInfo'])->name('Magazijn.LeverantieInfo');
 
+Route::get('/Allergenen', [AllergeenController::class, 'index'])->name('Allergenen.index');
+
 Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])
     ->name('dashboard');
