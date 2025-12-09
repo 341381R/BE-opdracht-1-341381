@@ -6,6 +6,7 @@ use App\Livewire\Settings\Profile;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AllergeenController;
 use App\Http\Controllers\MagazijnController;
+use App\Http\Controllers\LeverancierController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -32,7 +33,7 @@ Route::get('Magazijn/{id}/AllergeenInfo', [MagazijnController::class, 'Allergeen
 
 Route::get('Magazijn/{id}/LeverantieInfo', [MagazijnController::class, 'LeverantieInfo'])->name('Magazijn.LeverantieInfo');
 
-Route::get('/Allergenen', [AllergeenController::class, 'index'])->name('Allergenen.index');
+Route::get('/Leverancier', [LeverancierController::class, 'index'])->name('Leverancier.index');
 
 Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])
