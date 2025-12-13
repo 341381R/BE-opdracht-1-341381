@@ -35,6 +35,8 @@ Route::get('Magazijn/{id}/LeverantieInfo', [MagazijnController::class, 'Leverant
 
 Route::get('/Leverancier', [LeverancierController::class, 'index'])->name('Leverancier.index');
 
+Route::get('Leverancier/{id}/LeveringInfo', [MagazijnController::class, 'LeveringInfo'])->name('Magazijn.LeveringInfo');
+
 Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])
     ->name('dashboard');
