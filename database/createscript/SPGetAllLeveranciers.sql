@@ -15,7 +15,7 @@ BEGIN
 	FROM Leverancier AS LVRC    
     INNER JOIN ProductPerLeverancier AS PPLC
     ON LVRC.Id = PPLC.LeverancierId
-    ORDER BY LVRC.Barcode DESC;
+    ORDER BY VerschillendeProducten DESC;
 
 END$$
 
