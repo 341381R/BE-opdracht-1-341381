@@ -23,7 +23,8 @@ BEGIN
     ON PROD.Id = PPLC.ProductId
     INNER JOIN Magazijn AS MAGA
     ON PROD.Id = MAGA.ProductId
-    ORDER BY VerschillendeProducten DESC;
+    WHERE Id = p_id;
+    ORDER BY MAGA.AantalAanwezig DESC;
 
 END$$
 
