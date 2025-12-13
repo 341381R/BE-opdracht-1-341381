@@ -26,15 +26,14 @@
                 <th>Leveranciernummer</th>
                 <th>Mobiel</th>
                 <th>Aantal verschillende producuten</th>
-                <th>Allergeen info</th>
-                <th>Leverancie info</th>
+                <th>Toon producten</th>
             </thead>
             <tbody>
                 
                 @forelse ($leverancier as $leverancierInfo)
                 <tr>
                     <td>{{ $leverancierInfo->Naam }}</td>
-                    <td>{{ $leverancierInfo->Contactpersoon }}</td>
+                    <td>{{ $leverancierInfo->ContactPersoon }}</td>
                     <td>{{ $leverancierInfo->LeverancierNummer }}</td>
                     <td>{{ $leverancierInfo->Mobiel }}</td>
                     <td>{{ $leverancierInfo->VerschillendeProducten }}</td>
@@ -42,14 +41,7 @@
                         <form action="{{ route('Magazijn.AllergeenInfo', $leverancierInfo->Id) }}" method="POST">
                             @csrf
                             @method('GET')
-                            <button type="submit" class="btn btn-danger btn-sm">X</button>
-                        </form>
-                    </td>
-                    <td>
-                        <form action="{{ route('Magazijn.LeverantieInfo', $leverancierInfo->Id) }}" method="POST">
-                            @csrf
-                            @method('GET')
-                            <button type="submit" class="btn btn-primary btn-sm">?</button>
+                            <button type="submit" class="btn btn-danger btn-sm"><i class="bi bi-box"></i></button>
                         </form>
                     </td>
                 </tr>
