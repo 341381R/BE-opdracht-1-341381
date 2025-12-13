@@ -27,6 +27,22 @@ class LeverancierController extends Controller
         ]);
     }
 
+    public function LeveringInfo($id)
+    {
+        $leverancier = $this->leverancierModel->SP_GetLeverancierInfo($id);
+
+        if (!$leverancier)
+        {
+            return redirect()->route('Leverancier.index')
+                             ->with('error', 'Levering is niet gevonden');  
+        }
+
+        return view('Leverancier.LeveringInfo', [
+            'title' => 'Geleverde producten',
+            'magazijn' => $leverancier
+        ]);
+    }
+
     /**
      * Show the form for creating a new resource.
      */
