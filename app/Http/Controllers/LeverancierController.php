@@ -22,7 +22,7 @@ class LeverancierController extends Controller
         $leverancier = $this->leverancierModel->SP_GetAllLeveranciers();
         
         return view('Leverancier.index', [
-            'title' => 'Leverancier',
+            'title' => 'Overzicht leveranciers',
             'leverancier' => $leverancier
         ]);
     }

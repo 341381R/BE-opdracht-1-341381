@@ -21,10 +21,11 @@
     
         <table class="table">
             <thead>
-                <th>Barcode</th>
                 <th>Naam</th>
-                <th>VerpakkingsEenheid (kg)</th>
-                <th>Aantal aanwezig</th>
+                <th>Contactpersoon</th>
+                <th>Leveranciernummer</th>
+                <th>Mobiel</th>
+                <th>Aantal verschillende producuten</th>
                 <th>Allergeen info</th>
                 <th>Leverancie info</th>
             </thead>
@@ -33,6 +34,7 @@
                 @forelse ($leverancier as $leverancierInfo)
                 <tr>
                     <td>{{ $leverancierInfo->Naam }}</td>
+                    <td>{{ $leverancierInfo->Contactpersoon }}</td>
                     <td>{{ $leverancierInfo->LeverancierNummer }}</td>
                     <td>{{ $leverancierInfo->Mobiel }}</td>
                     <td>{{ $leverancierInfo->VerschillendeProducten }}</td>

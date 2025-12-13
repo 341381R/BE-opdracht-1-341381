@@ -9,6 +9,7 @@ BEGIN
 
     SELECT 	 LVRC.Id
 			,LVRC.Naam
+            ,LVRC.ContactPersoon
 			,LVRC.LeverancierNummer
             ,LVRC.Mobiel
             ,COUNT(DISTINCT PPLC.ProductId)   AS VerschillendeProducten
