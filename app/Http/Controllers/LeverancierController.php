@@ -23,7 +23,7 @@ class LeverancierController extends Controller
         
         return view('Leverancier.index', [
             'title' => 'Leverancier',
-            'Leverancier' => $leverancier
+            'leverancier' => $leverancier
         ]);
     }
 
