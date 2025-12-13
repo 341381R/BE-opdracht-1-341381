@@ -30,21 +30,21 @@
             </thead>
             <tbody>
                 
-                @forelse ($magazijn as $product)
+                @forelse ($leverancier as $leverancierInfo)
                 <tr>
-                    <td>{{ $product->Barcode }}</td>
-                    <td>{{ $product->Naam }}</td>
-                    <td>{{ $product->VerpakkingsEenheid }}</td>
-                    <td>{{ $product->AantalAanwezig }}</td>
+                    <td>{{ $leverancierInfo->Naam }}</td>
+                    <td>{{ $leverancierInfo->LeverancierNummer }}</td>
+                    <td>{{ $leverancierInfo->Mobiel }}</td>
+                    <td>{{ $leverancierInfo->VerschillendeProducten }}</td>
                     <td>
-                        <form action="{{ route('Magazijn.AllergeenInfo', $product->Id) }}" method="POST">
+                        <form action="{{ route('Magazijn.AllergeenInfo', $leverancierInfo->Id) }}" method="POST">
                             @csrf
                             @method('GET')
                             <button type="submit" class="btn btn-danger btn-sm">X</button>
                         </form>
                     </td>
                     <td>
-                        <form action="{{ route('Magazijn.LeverantieInfo', $product->Id) }}" method="POST">
+                        <form action="{{ route('Magazijn.LeverantieInfo', $leverancierInfo->Id) }}" method="POST">
                             @csrf
                             @method('GET')
                             <button type="submit" class="btn btn-primary btn-sm">?</button>
@@ -53,7 +53,7 @@
                 </tr>
                 @empty
                 <tr>
-                    <td colspan="3">Geen producten gevonden</td>
+                    <td colspan="3">Geen leveranciers gevonden</td>
                 </tr>
                 @endforelse
             </tbody>
