@@ -23,7 +23,7 @@ BEGIN
     ON PROD.Id = PPLC.ProductId
     LEFT JOIN Magazijn AS MAGA
     ON PROD.Id = MAGA.ProductId
-    WHERE LVRC.Id = 6
+    WHERE LVRC.Id = p_id
     ORDER BY MAGA.AantalAanwezig DESC;
 
 END$$

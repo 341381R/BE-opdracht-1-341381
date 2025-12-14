@@ -26,26 +26,29 @@
                         <th>Nieuwe levering</th>
                     </thead>
                     <tbody>
-                        @forelse ($leverancier as $levering)
-                            <tr>
-                          
-                                <td>{{ $levering->ProductNaam }}</td>
-                                <td>{{ $levering->AantalAanwezig }}</td>
-                                <td>{{ $levering->VerpakkingsEenheid }}</td>
-                                <td>{{ $levering->DatumLevering }}</td>
-                                <td>
-                                <form action="{{ route('Leverancier.LeveringInfo', $levering->Id) }}" method="POST">
-                                    @csrf
-                                    @method('GET')
-                                    <button type="submit" class="btn btn-sm"><i class="bi bi-plus-lg"></i></button>
-                                </form>
-                                </td>
-                            </tr>
-                        @empty
-                            <tr>
-                                <td colspan="3">Dit bedrijf heeft tot nu toe geen producten geleverd aan Jamin</td>
-                            </tr>
-                        @endforelse
+                            @if ($leverancier[0]->ProductNaam != null)
+                                @foreach ($leverancier as $levering)
+                                    <tr>
+                                        <td>{{ $levering->ProductNaam }}</td>
+                                        <td>{{ $levering->AantalAanwezig }}</td>
+                                        <td>{{ $levering->VerpakkingsEenheid }}</td>
+                                        <td>{{ $levering->DatumLevering }}</td>
+                                        <td>
+                                        <form action="{{ route('Leverancier.LeveringInfo', $levering->Id) }}" method="POST">
+                                            @csrf
+                                            @method('GET')
+                                            <button type="submit" class="btn btn-sm"><i class="bi bi-plus-lg"></i></button>
+                                        </form>
+                                        </td>
+                                    </tr>
+                                    
+                                @endforeach
+                            @else
+                                <tr>
+                                    <td colspan="12">Dit bedrijf heeft tot nu toe geen producten geleverd aan Jamin</td>
+                                    <meta http-equiv="refresh" content="3;url={{ route('Leverancier.index') }}">
+                                </tr>
+                            @endif
                     </tbody>
                 </table>
 
