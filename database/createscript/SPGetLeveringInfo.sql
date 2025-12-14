@@ -17,13 +17,13 @@ BEGIN
             ,CONCAT(TRIM(TRAILING ".0" FROM MAGA.VerpakkingsEenheidInKilogram), " kg")	AS VerpakkingsEenheid
             ,PPLC.DatumLevering
 	FROM Leverancier AS LVRC    
-    INNER JOIN ProductPerLeverancier AS PPLC
+    LEFT JOIN ProductPerLeverancier AS PPLC
     ON LVRC.Id = PPLC.LeverancierId
     LEFT JOIN Product AS PROD
     ON PROD.Id = PPLC.ProductId
-    INNER JOIN Magazijn AS MAGA
+    LEFT JOIN Magazijn AS MAGA
     ON PROD.Id = MAGA.ProductId
-    WHERE LVRC.Id = p_Id
+    WHERE LVRC.Id = 6
     ORDER BY MAGA.AantalAanwezig DESC;
 
 END$$
