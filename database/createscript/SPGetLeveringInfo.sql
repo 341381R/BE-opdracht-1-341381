@@ -14,7 +14,7 @@ BEGIN
             ,LVRC.Mobiel
             ,PROD.Naam                          AS ProductNaam
             ,MAGA.AantalAanwezig
-            ,MAGA.VerpakkingsEenheidInKilogram	AS VerpakkingsEenheid
+            ,CONCAT(TRIM(TRAILING ".0" FROM MAGA.VerpakkingsEenheidInKilogram), " kg")	AS VerpakkingsEenheid
             ,PPLC.DatumLevering
 	FROM Leverancier AS LVRC    
     INNER JOIN ProductPerLeverancier AS PPLC
@@ -23,7 +23,7 @@ BEGIN
     ON PROD.Id = PPLC.ProductId
     INNER JOIN Magazijn AS MAGA
     ON PROD.Id = MAGA.ProductId
-    WHERE LVRC.Id = p_id
+    WHERE LVRC.Id = p_Id
     ORDER BY MAGA.AantalAanwezig DESC;
 
 END$$
