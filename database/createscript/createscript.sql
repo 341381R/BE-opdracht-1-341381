@@ -186,7 +186,7 @@ CREATE TABLE IF NOT EXISTS ProductPerLeverancier
      Id                                 INT             UNSIGNED    NOT NULL        AUTO_INCREMENT
     ,LeverancierId                      INT             UNSIGNED    NOT NULL 
     ,ProductId                          INT             UNSIGNED    NOT NULL
-    ,DatumLevering                      DATE                        NOT NULL
+    ,DatumLevering                      DATE                            NULL
     ,Aantal                             TINYINT         UNSIGNED    NOT NULL
     ,DatumEerstVolgendeLevering         DATE                            NULL
     ,IsActief                           BIT                         NOT NULL        DEFAULT 1
