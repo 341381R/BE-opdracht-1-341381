@@ -11,8 +11,10 @@
             <div class="col-md-8">
                 <h2 class="mb-3">{{ $title }}</h2>
                 <dl class="row">
-                    <h2 class="col-sm-12">Naam: {{ $magazijn[0]->ProductNaam}}</h>
-                    <h2 class="col-sm-12 ">Barcode: {{ $magazijn[0]->Barcode}}</h2>
+                    <h2 class="col-sm-12">Naam leverancier: {{ $leverancier[0]->ProductNaam}}</h>
+                    <h2 class="col-sm-12 ">Contactpersoon: {{ $leverancier[0]->Barcode}}</h2>
+                    <h2 class="col-sm-12 ">Leverancier nr: {{ $leverancier[0]->Barcode}}</h2>
+                    <h2 class="col-sm-12 ">Mobiel: {{ $leverancier[0]->Barcode}}</h2>
                 </dl>
                 <table class="table">
                     <thead>
