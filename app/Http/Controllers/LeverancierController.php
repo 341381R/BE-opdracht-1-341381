@@ -48,7 +48,9 @@ class LeverancierController extends Controller
      */
     public function create()
     {
-        //
+        return view('Leverancier.create', [
+            'title' => 'Levering product'
+        ]);
     }
 
     /**
@@ -56,7 +58,18 @@ class LeverancierController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->validate([
+            'naam' => 'required|string|max:50',
+            'omschrijving' => 'required|string|max:255'
+        ]);
+
+        $newId = $this->allergeenModel->SP_CreateAllergeen(
+            $data['naam'],
+            $data['omschrijving']
+        );
+
+        return redirect()->route('Allergenen.index')
+                         ->with('success', 'Allergeen is succesvol toegevoegd met id' . $newId);
     }
 
     /**

@@ -45,8 +45,6 @@ class AllergeenController extends Controller
      */
     public function store(Request $request)
     {
-       // dd($request->all());
-
         $data = $request->validate([
             'naam' => 'required|string|max:50',
             'omschrijving' => 'required|string|max:255'
