@@ -53,6 +53,10 @@
                 @endforelse
             </tbody>
         </table>
+
+        <div class="mt-3 d-flex">
+                    <a href="{{ route('home') }}" class="btn btn-secondary btn-sm ms-auto">Home</a>
+        </div>
     </div>
 </body>
 </html>

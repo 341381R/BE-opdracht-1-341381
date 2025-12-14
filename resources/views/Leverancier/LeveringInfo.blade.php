@@ -43,15 +43,15 @@
                             </tr>
                         @empty
                             <tr>
-                                <td colspan="3">Geen leveranciers gevonden</td>
+                                <td colspan="3">Dit bedrijf heeft tot nu toe geen producten geleverd aan Jamin</td>
                             </tr>
                         @endforelse
                     </tbody>
                 </table>
 
                 <div class="mt-3 d-flex">
-                    <a href="{{ route('Magazijn.index') }}" class="btn btn-secondary btn-sm ms-auto">Terug</a>
-                    <a href="{{ route('Leverancier.index') }}" class="btn btn-secondary btn-sm ms-auto">Home</a>
+                    <a href="{{ route('Leverancier.index') }}" class="btn btn-secondary btn-sm ms-auto">Terug</a>
+                    <a href="{{ route('home') }}" class="btn btn-secondary btn-sm ms-1">Home</a>
                 </div>
             </div>
         </div>
