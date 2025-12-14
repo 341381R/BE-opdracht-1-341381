@@ -14,7 +14,7 @@ BEGIN
             ,LVRC.Mobiel
             ,PROD.Naam                          AS ProductNaam
             ,MAGA.AantalAanwezig
-            ,MAGA.VerpakkingsEenheidInKilogram
+            ,MAGA.VerpakkingsEenheidInKilogram	AS VerpakkingsEenheid
             ,PPLC.DatumLevering
 	FROM Leverancier AS LVRC    
     INNER JOIN ProductPerLeverancier AS PPLC
@@ -23,7 +23,6 @@ BEGIN
     ON PROD.Id = PPLC.ProductId
     INNER JOIN Magazijn AS MAGA
     ON PROD.Id = MAGA.ProductId
-    WHERE Id = p_id
     ORDER BY MAGA.AantalAanwezig DESC;
 
 END$$

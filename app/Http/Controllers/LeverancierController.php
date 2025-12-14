@@ -29,7 +29,7 @@ class LeverancierController extends Controller
 
     public function LeveringInfo($id)
     {
-        $leverancier = $this->leverancierModel->SP_GetLeverancierInfo($id);
+        $leverancier = $this->leverancierModel->SP_GetLeveringInfo($id);
 
         if (!$leverancier)
         {
@@ -39,7 +39,7 @@ class LeverancierController extends Controller
 
         return view('Leverancier.LeveringInfo', [
             'title' => 'Geleverde producten',
-            'magazijn' => $leverancier
+            'leverancier' => $leverancier
         ]);
     }
 
