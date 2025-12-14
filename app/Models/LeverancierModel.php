@@ -14,7 +14,7 @@ class LeverancierModel extends Model
 
     public function SP_GetLeveringInfo($id)
     {
-        return DB::selectOne(
+        return DB::select(
             'CALL SP_GetLeveringInfo(:id)',
             ['id' => $id]
         );

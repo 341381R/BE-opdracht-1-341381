@@ -34,7 +34,7 @@ class LeverancierController extends Controller
         if (!$leverancier)
         {
             return redirect()->route('Leverancier.index')
-                             ->with('error', 'Levering is niet gevonden');  
+                             ->with('error', 'Leverancier is niet gevonden');  
         }
 
         return view('Leverancier.LeveringInfo', [
