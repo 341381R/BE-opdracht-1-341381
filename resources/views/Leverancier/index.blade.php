@@ -26,7 +26,7 @@
                 <th>Contactpersoon</th>
                 <th>Leveranciernummer</th>
                 <th>Mobiel</th>
-                <th>Aantal verschillende producuten</th>
+                <th>Aantal verschillende producten</th>
                 <th>Toon producten</th>
             </thead>
             <tbody>
