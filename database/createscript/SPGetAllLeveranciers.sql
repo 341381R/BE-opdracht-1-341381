@@ -14,7 +14,7 @@ BEGIN
             ,LVRC.Mobiel
             ,COUNT(DISTINCT PPLC.ProductId)   AS VerschillendeProducten
 	FROM Leverancier AS LVRC    
-    INNER JOIN ProductPerLeverancier AS PPLC
+    LEFT JOIN ProductPerLeverancier AS PPLC
     ON LVRC.Id = PPLC.LeverancierId
     GROUP BY LVRC.Id
     ORDER BY VerschillendeProducten DESC;
