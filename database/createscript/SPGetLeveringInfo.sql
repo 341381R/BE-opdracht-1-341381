@@ -19,7 +19,7 @@ BEGIN
 	FROM Leverancier AS LVRC    
     INNER JOIN ProductPerLeverancier AS PPLC
     ON LVRC.Id = PPLC.LeverancierId
-    INNER JOIN Product AS PROD
+    LEFT JOIN Product AS PROD
     ON PROD.Id = PPLC.ProductId
     INNER JOIN Magazijn AS MAGA
     ON PROD.Id = MAGA.ProductId
