@@ -19,4 +19,16 @@ class LeverancierModel extends Model
             ['id' => $id]
         );
     }
+
+    public function SP_CreateLevering($aantal, $datumEerstVolgendeLevering)
+    {
+        $row = DB::selectOne(
+            'CALL SP_CreateLevering(:aantal, :datumEerstVolgendeLevering)',
+            [
+                'naam' => $naam,
+                'omschrijving' => $omschrijving
+            ]
+        );
+        return $row->new_id;
+    }
 }

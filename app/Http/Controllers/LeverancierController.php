@@ -63,13 +63,13 @@ class LeverancierController extends Controller
             'omschrijving' => 'required|string|max:255'
         ]);
 
-        $newId = $this->allergeenModel->SP_CreateAllergeen(
+        $newId = $this->leverancierModel->SP_CreateLevering(
             $data['naam'],
             $data['omschrijving']
         );
 
-        return redirect()->route('Allergenen.index')
-                         ->with('success', 'Allergeen is succesvol toegevoegd met id' . $newId);
+        return redirect()->route('Leverancier.index')
+                         ->with('success', 'Levering is succesvol toegevoegd' . $newId);
     }
 
     /**

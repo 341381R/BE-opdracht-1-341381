@@ -17,40 +17,19 @@
                     <h4 class="col-sm-12 ">Leverancier nr: {{ $leverancier[0]->LeverancierNummer}}</h4>
                     <h4 class="col-sm-12 ">Mobiel: {{ $leverancier[0]->Mobiel}}</h4>
                 </dl>
-                <table class="table">
-                    <thead>
-                        <th>Naam product</th>
-                        <th>Aantal in magazijn</th>
-                        <th>VerpakkingsEenhied</th>
-                        <th>Laatste levering</th>
-                        <th>Nieuwe levering</th>
-                    </thead>
-                    <tbody>
-                            @if ($leverancier[0]->ProductNaam != null)
-                                @foreach ($leverancier as $levering)
-                                    <tr>
-                                        <td>{{ $levering->ProductNaam }}</td>
-                                        <td>{{ $levering->AantalAanwezig }}</td>
-                                        <td>{{ $levering->VerpakkingsEenheid }}</td>
-                                        <td>{{ $levering->DatumLevering }}</td>
-                                        <td>
-                                        <form action="{{ route('Leverancier.LeveringInfo', $levering->Id) }}" method="POST">
-                                            @csrf
-                                            @method('GET')
-                                            <button type="submit" class="btn btn-sm"><i class="bi bi-plus-lg"></i></button>
-                                        </form>
-                                        </td>
-                                    </tr>
-                                    
-                                @endforeach
-                            @else
-                                <tr>
-                                    <td colspan="12">Dit bedrijf heeft tot nu toe geen producten geleverd aan Jamin</td>
-                                    <meta http-equiv="refresh" content="3;url={{ route('Leverancier.index') }}">
-                                </tr>
-                            @endif
-                    </tbody>
-                </table>
+                <form method="POST" action="{{ route('Allergenen.store') }}">
+                    @csrf
+                    <div class="mb-3">
+                        <label for="InputAantal" class="form-label">Aantal producteenheden</label>
+                        <input name="aantal" type="text" class="form-control" id="Inputaantal" aria-describedby="aantalHelp">
+                    </div>
+                    <div class="mb-3">
+                        <label for="InputOmschrijving" class="form-label">DatumEerstVolgendeLevering</label>
+                        <input name="omschrijving" type="date" class="form-control" id="InputOmschrijving" aria-describedby="omschrijvingHelp">
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Sla op</button>
+                </form>
 
                 <div class="mt-3 d-flex">
                     <a href="{{ route('Leverancier.index') }}" class="btn btn-secondary btn-sm ms-auto">Terug</a>

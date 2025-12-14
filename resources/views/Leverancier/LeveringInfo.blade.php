@@ -34,7 +34,7 @@
                                         <td>{{ $levering->VerpakkingsEenheid }}</td>
                                         <td>{{ $levering->DatumLevering }}</td>
                                         <td>
-                                        <form action="{{ route('Leverancier.LeveringInfo', $levering->Id) }}" method="POST">
+                                        <form action="{{ route('Leverancier.create', $levering->Id) }}" method="POST">
                                             @csrf
                                             @method('GET')
                                             <button type="submit" class="btn btn-sm"><i class="bi bi-plus-lg"></i></button>
