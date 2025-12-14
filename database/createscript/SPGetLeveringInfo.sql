@@ -3,7 +3,7 @@ DROP PROCEDURE IF EXISTS SP_GetLeveringInfo;
 DELIMITER $$
 
 CREATE PROCEDURE SP_GetLeveringInfo(
-
+    IN p_id INT
 )
 BEGIN
 
@@ -23,6 +23,7 @@ BEGIN
     ON PROD.Id = PPLC.ProductId
     INNER JOIN Magazijn AS MAGA
     ON PROD.Id = MAGA.ProductId
+    WHERE LVRC.Id = p_id
     ORDER BY MAGA.AantalAanwezig DESC;
 
 END$$

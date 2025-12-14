@@ -11,10 +11,10 @@
             <div class="col-md-8">
                 <h2 class="mb-3">{{ $title }}</h2>
                 <dl class="row">
-                    <h2 class="col-sm-12">Naam leverancier: {{ $leverancier[0]->ProductNaam}}</h>
-                    <h2 class="col-sm-12 ">Contactpersoon: {{ $leverancier[0]->Barcode}}</h2>
-                    <h2 class="col-sm-12 ">Leverancier nr: {{ $leverancier[0]->Barcode}}</h2>
-                    <h2 class="col-sm-12 ">Mobiel: {{ $leverancier[0]->Barcode}}</h2>
+                    <h2 class="col-sm-12">Naam leverancier: {{ $leverancier->LeverancierNaam}}</h>
+                    <h2 class="col-sm-12 ">Contactpersoon: {{ $leverancier->ContactPersoon}}</h2>
+                    <h2 class="col-sm-12 ">Leverancier nr: {{ $leverancier->LeverancierNummer}}</h2>
+                    <h2 class="col-sm-12 ">Mobiel: {{ $leverancier->Mobiel}}</h2>
                 </dl>
                 <table class="table">
                     <thead>
@@ -22,19 +22,26 @@
                         <th>Omschrijving</th>
                     </thead>
                     <tbody>
-                        @if ($magazijn[0]->AllergeenNaam != null)
-                            @foreach ($magazijn as $product)
+                        @forelse ($leverancier as $leveringInfo)
                             <tr>
-                                <td>{{ $product->AllergeenNaam }}</td>
-                                <td>{{ $product->Omschrijving }}</td>
+                                <td>{{ $leveringInfo->ProductNaam }}</td>
+                                <td>{{ $leveringInfo->AantalAanwezig }}</td>
+                                <td>{{ $leveringInfo->VerpakkingsEenhiedI }}</td>
+                                <td>{{ $leveringInfo->Mobiel }}</td>
+                                <td>{{ $leveringInfo->VerschillendeProducten }}</td>
+                                <td>
+                                <form action="{{ route('Leverancier.LeveringInfo', $leveringInfo->Id) }}" method="POST">
+                                    @csrf
+                                    @method('GET')
+                                    <button type="submit" class="btn btn-sm"><i class="bi bi-box"></i></button>
+                                </form>
+                                </td>
                             </tr>
-                            @endforeach
-                        @else
-                        <tr>
-                            <td colspan="3">In dit product zitten geen stoffen die een allergische reactie kunnen veroorzaken</td>
-                            <meta http-equiv="refresh" content="4;url={{ route('Magazijn.index') }}">
-                        </tr>
-                        @endif
+                        @empty
+                            <tr>
+                                <td colspan="3">Geen leveranciers gevonden</td>
+                            </tr>
+                        @endforelse
                     </tbody>
                 </table>
 

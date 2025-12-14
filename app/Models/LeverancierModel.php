@@ -12,8 +12,11 @@ class LeverancierModel extends Model
         return DB::select('CALL SP_GetAllLeveranciers');
     }
 
-    public function SP_GetLeveringInfo()
+    public function SP_GetLeveringInfo($id)
     {
-        return DB::selectOne('CALL SP_GetLeveringInfo');
+        return DB::selectOne(
+            'CALL SP_GetLeveringInfo(:id)',
+            ['id' => $id]
+        );
     }
 }
