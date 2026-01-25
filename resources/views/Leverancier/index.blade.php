@@ -47,7 +47,7 @@
                         </form>
                     </td>
                     <td>
-                        <form action="{{ route('Leverancier.show', $leverancierInfo->Id) }}" method="POST">
+                        <form action="{{ route('Leverancier.LeverancierInfo', $leverancierInfo->Id) }}" method="POST">
                             @csrf
                             @method('GET')
                             <button type="submit" class="btn btn-sm"><i class="bi bi-pencil-square"></i></button>

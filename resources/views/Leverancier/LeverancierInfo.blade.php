@@ -49,7 +49,7 @@
                 </table>
 
                 <div class="mt-3 d-flex">
-                    <a href="{{ route('Leverancier.Edit') }}" class="btn btn-secondary btn-sm ms-1">Wijzig</a>
+                    <a href="{{ route('Leverancier.edit') }}" class="btn btn-secondary btn-sm ms-1">Wijzig</a>
                     <a href="{{ route('Leverancier.index') }}" class="btn btn-secondary btn-sm ms-auto">Terug</a>
                     <a href="{{ route('home') }}" class="btn btn-secondary btn-sm ms-1">Home</a>
                 </div>
