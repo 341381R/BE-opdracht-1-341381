@@ -93,26 +93,20 @@ class LeverancierController extends Controller
      */
     public function show($id)
     {
-        $leverancier = $this->leverancierModel->SP_LeverancierDetails($id);
-
-        if (!$leverancier)
-        {
-            return redirect()->route('Leverancier.index')
-                             ->with('error', 'Leverancier is niet gevonden');  
-        }
-
-        return view('Leverancier.LeverancierInfo', [
-            'title' => 'Leverancier details',
-            'leverancier' => $leverancier
-        ]);
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(LeverancierModel $leverancierModel)
+    public function edit($id)
     {
-        //
+        $leverancier = $this->leverancierModel->SP_LeverancierDetails($id);
+        abort_if(!$leverancier, 404);
+        return view('Leverancier.edit', [
+            'title' => 'Leverancier wijzigen',
+            'leverancier' => $leverancier,
+        ]);
     }
 
     /**
