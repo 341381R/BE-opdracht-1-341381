@@ -31,4 +31,12 @@ class LeverancierModel extends Model
         );
         return $row->new_id;
     }
+
+    public function SP_LeverancierDetails($id)
+    {
+        return DB::select(
+            'CALL SP_CreateLevering(:id)',
+            ['id' => $id]
+        ); 
+    }
 }
