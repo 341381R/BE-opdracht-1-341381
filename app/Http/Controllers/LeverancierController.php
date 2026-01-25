@@ -72,6 +72,22 @@ class LeverancierController extends Controller
                          ->with('success', 'Levering is succesvol toegevoegd' . $newId);
     }
 
+    public function LeverancierInfo($id)
+    {
+        $leverancier = $this->leverancierModel->SP_LeverancierDetails($id);
+
+        if (!$leverancier)
+        {
+            return redirect()->route('Leverancier.index')
+                             ->with('error', 'Leverancier is niet gevonden');  
+        }
+
+        return view('Leverancier.LeverancierInfo', [
+            'title' => 'Leverancier details',
+            'leverancier' => $leverancier
+        ]);
+    }
+
     /**
      * Display the specified resource.
      */
