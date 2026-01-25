@@ -51,11 +51,13 @@ CREATE TABLE IF NOT EXISTS Leverancier
     ,ContactPersoon     VARCHAR(50)                 NOT NULL
     ,LeverancierNummer  VARCHAR(11)                 NOT NULL
     ,Mobiel             VARCHAR(11)                 NOT NULL
+    ,ContactId          INT             UNSIGNED    NOT NULL
     ,IsActief           BIT                         NOT NULL        DEFAULT 1
     ,Opmerking          VARCHAR(255)                    NULL        DEFAULT NULL
     ,DatumAangemaakt    DATETIME(6)                 NOT NULL        DEFAULT (SYSDATE(6))
     ,DatumGewijzigd     DATETIME(6)                 NOT NULL        DEFAULT (SYSDATE(6))
     ,CONSTRAINT         PK_Leverancier_Id             PRIMARY KEY     CLUSTERED(Id)
+    ,FOREIGN KEY(ContactId)         REFERENCES Contact(Id)
 ) ENGINE=InnoDB;
 
 INSERT INTO Leverancier
@@ -224,3 +226,33 @@ VALUES
 ,(5, 11, "2024-10-19", 60, "2024-10-26")
 ,(5, 12, "2024-10-11", 45, NULL)
 ,(5, 13, "2024-10-12", 23, NULL);
+
+DROP TABLE IF EXISTS Contact;
+
+CREATE TABLE IF NOT EXISTS Contact
+(
+     Id                 INT             UNSIGNED    NOT NULL        AUTO_INCREMENT
+    ,Straat             VARCHAR(50)                 NOT NULL
+    ,Huisnummer         SMALLINT        UNSIGNED    NOT NULL     
+    ,Postcode           VARCHAR(6)                  NOT NULL
+    ,Stad               VARCHAR(30)                 NOT NULL     
+    ,IsActief           BIT                         NOT NULL        DEFAULT 1
+    ,Opmerking          VARCHAR(255)                    NULL        DEFAULT NULL
+    ,DatumAangemaakt    DATETIME(6)                 NOT NULL        DEFAULT (SYSDATE(6))
+    ,DatumGewijzigd     DATETIME(6)                 NOT NULL        DEFAULT (SYSDATE(6))
+    ,CONSTRAINT         PK_Allergeen_Id             PRIMARY KEY     CLUSTERED(Id)
+) ENGINE=InnoDB;
+
+INSERT INTO Contact
+(
+      Straat
+     ,Huisnummer
+     ,Postcode
+     ,Stad
+)
+VALUES
+ ('Van Gilslaan', 34, '1045CB', 'Hilvarenbeek')
+,('Den Dolderpad', 2, '1067RC', 'Utrecht')
+,('Fredo Raalteweg', 257, '1236OP', 'Nijmegen')
+,('Bertrand Russellhof', 21, '2034AP', 'Den Haag')
+,('Leon van Bonstraat', 213, '145XC', 'Lunteren');
