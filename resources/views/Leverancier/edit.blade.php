@@ -26,8 +26,8 @@
             @method('PUT')
             <div class="mb-3">
                 <label for="InputNaam" class="form-label">Naam</label>
-                <input name="naam" type="text" class="form-control" id="InputNaam" aria-describedby="naamHelp" 
-                    value="{{ old('naam', $leverancier->Naam) }}">
+                <input name="Naam" type="text" class="form-control" id="InputNaam" aria-describedby="naamHelp" 
+                    value="{{ old('Naam', $leverancier->Naam) }}">
             </div>
             <div class="mb-3">
                 <label for="InputContactPersoon" class="form-label">ContactPersoon</label>
@@ -45,9 +45,9 @@
                     value="{{ old('Mobiel', $leverancier->Mobiel) }}">
             </div>
             <div class="mb-3">
-                <label for="InputStraatnaam" class="form-label">Straatnaam</label>
-                <input name="Straatnaam" type="text" class="form-control" id="InputStraatnaam" aria-describedby="StraatnaamHelp"
-                    value="{{ old('Straatnaam', $leverancier->Straat) }}">
+                <label for="InputStraat" class="form-label">Straatnaam</label>
+                <input name="Straat" type="text" class="form-control" id="InputStraat" aria-describedby="StraatHelp"
+                    value="{{ old('Straat', $leverancier->Straat) }}">
             </div>
             <div class="mb-3">
                 <label for="InputHuisnummer" class="form-label">Huisnummer</label>

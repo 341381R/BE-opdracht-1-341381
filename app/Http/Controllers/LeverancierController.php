@@ -115,26 +115,26 @@ class LeverancierController extends Controller
     public function update(Request $request, $id)
     {
         $validated = $request->validate([
-            'naam' => ['required', 'string', 'max:30'],
-            'contactpersoon' => ['required', 'string', 'max:50'],
-            'leveranciernummer' => ['required', 'string', 'max:11'],
-            'mobiel' => ['required', 'string', 'max:11'],
-            'straat' => ['required', 'string', 'max:50'],
-            'huisnummer' => ['required', 'integer', 'between:0,65535'],
-            'postcode' => ['required', 'string', 'max:6'],
-            'stad' => ['required', 'string', 'max:30'],
+            'Naam' => ['required', 'string', 'max:30'],
+            'ContactPersoon' => ['required', 'string', 'max:50'],
+            'LeverancierNummer' => ['required', 'string', 'max:11'],
+            'Mobiel' => ['required', 'string', 'max:11'],
+            'Straat' => ['required', 'string', 'max:50'],
+            'Huisnummer' => ['required', 'integer', 'between:0,65535'],
+            'Postcode' => ['required', 'string', 'max:6'],
+            'Stad' => ['required', 'string', 'max:30'],
         ]);
 
         $affected = $this->LeverancierModel->SP_UpdateLeverancier(
             $id,
-            $validated['naam'],
-            $validated['contactpersoon'],
-            $validated['leveranciernummer'],
-            $validated['mobiel'],
-            $validated['straat'],
-            $validated['huisnummer'],
-            $validated['postcode'],
-            $validated['stad'],
+            $validated['Naam'],
+            $validated['ContactPersoon'],
+            $validated['LeverancierNummer'],
+            $validated['Mobiel'],
+            $validated['Straat'],
+            $validated['Huisnummer'],
+            $validated['Postcode'],
+            $validated['Stad'],
         );
 
         if ($affected === 0)

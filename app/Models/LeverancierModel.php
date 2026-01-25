@@ -43,17 +43,17 @@ class LeverancierModel extends Model
     public function SP_UpdateLeverancier($id, $naam, $contactpersoon, $leveranciernummer, $mobiel, $straat, $huisnummer, $postcode, $stad)
     {
         $row = DB::selectOne(
-            'CALL SP_UpdateLeverancier(:id, :naam, :contactpersoon, :leveranciernummer, :mobiel, :straat, :huisnummer, :postcode, :stad)',
+            'CALL SP_UpdateLeverancier(:id, :Naam, :ContactPersoon, :LeverancierNummer, :Mobiel, :Straat, :Huisnummer, :Postcode, :Stad)',
             [
                 'id' => $id,
-                'naam' => $naam,
-                'contactpersoon' => $contactpersoon,
-                'leverancier' => $leveranciernummer,
-                'mobiel' => $mobiel,
-                'straat' => $straat,
-                'huisnummer' => $huisnummer,
-                'postcode' => $postcode,
-                'stad' => $stad,
+                'Naam' => $naam,
+                'ContactPersoon' => $contactpersoon,
+                'LeverancierNummer' => $leveranciernummer,
+                'Mobiel' => $mobiel,
+                'Straat' => $straat,
+                'Huisnummer' => $huisnummer,
+                'Postcode' => $postcode,
+                'Stad' => $stad,
             ]
         );
         return $row->affected ?? 0;
