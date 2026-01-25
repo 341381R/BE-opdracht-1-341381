@@ -39,6 +39,8 @@ Route::get('Leverancier/{id}/LeveringInfo', [LeverancierController::class, 'Leve
 
 Route::get('Leverancier/create', [LeverancierController::class, 'create'])->name('Leverancier.create');
 
+Route::get('Leverancier/{id}/edit', [LeverancierController::class, 'edit'])->name('Leverancier.edit');
+
 Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])
     ->name('dashboard');
