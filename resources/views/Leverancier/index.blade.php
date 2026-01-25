@@ -28,7 +28,7 @@
                 <th>Mobiel</th>
                 <th>Aantal verschillende producten</th>
                 <th>Toon producten</th>
-                <th>Wijzigen</th>
+                <th>Leverancier Details</th>
             </thead>
             <tbody>
                 
@@ -50,7 +50,7 @@
                         <form action="{{ route('Leverancier.edit', $leverancierInfo->Id) }}" method="POST">
                             @csrf
                             @method('GET')
-                            <button type="submit" class="btn btn-success btn-sm"><i class="bi bi-pencil-square"></i></button>
+                            <button type="submit" class="btn btn-sm"><i class="bi bi-pencil-square"></i></button>
                         </form>
                     </td>
                 </tr>
