@@ -34,8 +34,8 @@ class LeverancierModel extends Model
 
     public function SP_LeverancierDetails($id)
     {
-        return DB::select(
-            'CALL SP_CreateLevering(:id)',
+        return DB::selectOne(
+            'CALL SP_LeverancierDetails(:id)',
             ['id' => $id]
         ); 
     }

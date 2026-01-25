@@ -7,7 +7,8 @@ CREATE PROCEDURE SP_LeverancierDetails(
 )
 BEGIN
 
-    SELECT   LVRC.Naam
+    SELECT   LVRC.Id
+            ,LVRC.Naam
             ,LVRC.ContactPersoon
             ,LVRC.LeverancierNummer
             ,LVRC.Mobiel
