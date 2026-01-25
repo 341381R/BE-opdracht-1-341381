@@ -112,9 +112,39 @@ class LeverancierController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, LeverancierModel $leverancierModel)
+    public function update(Request $request, $id)
     {
-        //
+        $validated = $request->validate([
+            'naam' => ['required', 'string', 'max:30'],
+            'contactpersoon' => ['required', 'string', 'max:50'],
+            'leveranciernummer' => ['required', 'string', 'max:11'],
+            'mobiel' => ['required', 'string', 'max:11'],
+            'straat' => ['required', 'string', 'max:50'],
+            'huisnummer' => ['required', 'integer', 'between:0,65535'],
+            'postcode' => ['required', 'string', 'max:6'],
+            'stad' => ['required', 'string', 'max:30'],
+        ]);
+
+        $affected = $this->LeverancierModel->SP_UpdateLeverancier(
+            $id,
+            $validated['naam'],
+            $validated['contactpersoon'],
+            $validated['leveranciernummer'],
+            $validated['mobiel'],
+            $validated['straat'],
+            $validated['huisnummer'],
+            $validated['postcode'],
+            $validated['stad'],
+        );
+
+        if ($affected === 0)
+        {
+            return back()->with('error', 'er is niets gewijzigd of het item bestaat niet.');
+        }
+
+        return redirect()
+            ->route('Leverancier.index')
+            ->with('success', 'Leverancier succesvol gewijzigd');
     }
 
     /**
