@@ -125,7 +125,7 @@ class LeverancierController extends Controller
             'Stad' => ['required', 'string', 'max:30'],
         ]);
 
-        $affected = $this->LeverancierModel->SP_UpdateLeverancier(
+        $affected = $this->leverancierModel->SP_UpdateLeverancier(
             $id,
             $validated['Naam'],
             $validated['ContactPersoon'],
