@@ -66,14 +66,15 @@ INSERT INTO Leverancier
      ,ContactPersoon
      ,LeverancierNummer
      ,Mobiel
+     ,ContactId
 
 )
 VALUES
- ('Venco', 'Bert van Linge', 'L1029384719', '06-28493827')
-,('Astra Sweets', 'Jasper del Monte', 'L1029284315', '06-39398734')
-,('Haribo', 'Sven Stalman', 'L1029324748', '06-24383291')
-,('Basset', 'Joyce Stelterberg', 'L1023845773', '06-48293823')
-,('De Bron', 'Remco Veenstra', 'L1023857736', '06-34291234');
+ ('Venco', 'Bert van Linge', 'L1029384719', '06-28493827', 1)
+,('Astra Sweets', 'Jasper del Monte', 'L1029284315', '06-39398734', 2)
+,('Haribo', 'Sven Stalman', 'L1029324748', '06-24383291', 3)
+,('Basset', 'Joyce Stelterberg', 'L1023845773', '06-48293823', 4)
+,('De Bron', 'Remco Veenstra', 'L1023857736', '06-34291234', 5);
 
 DROP TABLE IF EXISTS Product;
 
