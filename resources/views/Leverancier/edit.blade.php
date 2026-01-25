@@ -35,9 +35,9 @@
                     value="{{ old('naam', $leverancier->ContactPersoon) }}">
             </div>
             <div class="mb-3">
-                <label for="InputLeveranciernummer" class="form-label">Leveranciernummer</label>
-                <input name="Leveranciernummer" type="text" class="form-control" id="InputLeveranciernummer" aria-describedby="LeveranciernummerHelp"
-                    value="{{ old('naam', $leverancier->Leveranciernummer) }}">
+                <label for="InputLeverancierNummer" class="form-label">LeverancierNummer</label>
+                <input name="LeverancierNummer" type="text" class="form-control" id="InputLeverancierNummer" aria-describedby="LeverancierNummerHelp"
+                    value="{{ old('naam', $leverancier->LeverancierNummer) }}">
             </div>
             <div class="mb-3">
                 <label for="InputMobiel" class="form-label">Mobiel</label>
@@ -47,12 +47,12 @@
             <div class="mb-3">
                 <label for="InputStraatnaam" class="form-label">Straatnaam</label>
                 <input name="Straatnaam" type="text" class="form-control" id="InputStraatnaam" aria-describedby="StraatnaamHelp"
-                    value="{{ old('naam', $leverancier->Straatnaam) }}">
+                    value="{{ old('naam', $leverancier->Straat) }}">
             </div>
             <div class="mb-3">
-                <label for="InputHuisnaam" class="form-label">Huisnaam</label>
-                <input name="Huisnaam" type="text" class="form-control" id="InputHuisnaam" aria-describedby="HuisnaamHelp"
-                    value="{{ old('naam', $leverancier->Huisnaam) }}">
+                <label for="InputHuisnummer" class="form-label">Huisnummer</label>
+                <input name="Huisnummer" type="text" class="form-control" id="InputHuisnummer" aria-describedby="HuisnummerHelp"
+                    value="{{ old('naam', $leverancier->Huisnummer) }}">
             </div>
             <div class="mb-3">
                 <label for="InputPostcode" class="form-label">Postcode</label>
