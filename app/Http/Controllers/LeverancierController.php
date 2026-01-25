@@ -75,9 +75,20 @@ class LeverancierController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(LeverancierModel $leverancierModel)
+    public function show($id)
     {
-        //
+        $leverancier = $this->leverancierModel->SP_LeverancierDetails($id);
+
+        if (!$leverancier)
+        {
+            return redirect()->route('Leverancier.index')
+                             ->with('error', 'Leverancier is niet gevonden');  
+        }
+
+        return view('Leverancier.LeverancierInfo', [
+            'title' => 'Leverancier details',
+            'leverancier' => $leverancier
+        ]);
     }
 
     /**
