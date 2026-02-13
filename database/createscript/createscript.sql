@@ -1,19 +1,6 @@
 
--- Gebruik database jamin
 USE `jamin`;
 
--- Step: 02
--- ***************************************************************
--- Doel : Maak een nieuwe tabel aan met de naam Allergeen
--- ***************************************************************
--- Versie       Datum           Auteur              Omschrijving
--- ******       *****           ******              ************
--- 01           12-02-2025      Arjan de Ruijter    Tabel Allergeen
--- ***************************************************************
--- Onderstaande velden toevoegen aan de tabel Allergeen
--- Merk, Model, Prijs, Geheugen, Besturingssysteem, 
--- Schermgrootte, Releasedatum, MegaPixels
--- ***************************************************************
 DROP TABLE IF EXISTS Allergeen;
 
 CREATE TABLE IF NOT EXISTS Allergeen

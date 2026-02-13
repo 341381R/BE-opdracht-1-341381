@@ -8,7 +8,8 @@ BEGIN
     SELECT   ALGE.Id
             ,ALGE.Naam
             ,ALGE.Omschrijving
-    FROM Allergeen as ALGE;
+    FROM Allergeen AS ALGE
+    ORDER BY ALGE.Naam;
 
 
 END$$
