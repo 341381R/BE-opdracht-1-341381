@@ -51,7 +51,7 @@ CREATE TABLE IF NOT EXISTS Leverancier
     ,ContactPersoon     VARCHAR(50)                 NOT NULL
     ,LeverancierNummer  VARCHAR(11)                 NOT NULL
     ,Mobiel             VARCHAR(11)                 NOT NULL
-    ,ContactId          INT             UNSIGNED    NOT NULL
+    ,ContactId          INT             UNSIGNED        NULL
     ,IsActief           BIT                         NOT NULL        DEFAULT 1
     ,Opmerking          VARCHAR(255)                    NULL        DEFAULT NULL
     ,DatumAangemaakt    DATETIME(6)                 NOT NULL        DEFAULT (SYSDATE(6))
@@ -74,7 +74,9 @@ VALUES
 ,('Astra Sweets', 'Jasper del Monte', 'L1029284315', '06-39398734', 2)
 ,('Haribo', 'Sven Stalman', 'L1029324748', '06-24383291', 3)
 ,('Basset', 'Joyce Stelterberg', 'L1023845773', '06-48293823', 4)
-,('De Bron', 'Remco Veenstra', 'L1023857736', '06-34291234', 5);
+,('De Bron', 'Remco Veenstra', 'L1023857736', '06-34291234', 5)
+,('Quality Street', 'Johan Nooij', 'L1029234586', '06-23458456', 6)
+,('Hom Ken Food', 'Hom Ken', 'L1029234599', '06-23458477', NULL);
 
 DROP TABLE IF EXISTS Product;
 
@@ -108,7 +110,8 @@ VALUES
 ,('Winegums', 8719587327527)
 ,('Drop Munten', 8719587322345)
 ,('Kruis Drop', 8719587322265)
-,('Zoute Ruitjes', 8719587323256);
+,('Zoute Ruitjes', 8719587323256)
+,('Drop ninja’s', 8719587323277);
 
 DROP TABLE IF EXISTS Magazijn;
 
@@ -142,7 +145,7 @@ VALUES
 ,(7, 1.0, 795)
 ,(8, 10.0, 233)
 ,(9, 2.5, 123)
-,(10, 3.0, 0)
+,(10, 3.0, NULL)
 ,(11, 2.0, 367)
 ,(12, 1.0, 467)
 ,(13, 5.0, 20);
@@ -180,7 +183,8 @@ VALUES
 ,(12, 4)
 ,(13, 1)
 ,(13, 4)
-,(13, 5);
+,(13, 5)
+,(14, 5);
 
 DROP TABLE IF EXISTS ProductPerLeverancier;
 
@@ -226,7 +230,8 @@ VALUES
 ,(5, 11, "2024-10-10", 47, "2024-10-17")
 ,(5, 11, "2024-10-19", 60, "2024-10-26")
 ,(5, 12, "2024-10-11", 45, NULL)
-,(5, 13, "2024-10-12", 23, NULL);
+,(5, 13, "2024-10-12", 23, NULL)
+,(7, 14, "2023-04-14", 20, NULL);
 
 DROP TABLE IF EXISTS Contact;
 
@@ -256,4 +261,5 @@ VALUES
 ,('Den Dolderpad', 2, '1067RC', 'Utrecht')
 ,('Fredo Raalteweg', 257, '1236OP', 'Nijmegen')
 ,('Bertrand Russellhof', 21, '2034AP', 'Den Haag')
-,('Leon van Bonstraat', 213, '145XC', 'Lunteren');
+,('Leon van Bonstraat', 213, '145XC', 'Lunteren')
+,('Bea van Lingenlaan', 234, '2197FG', 'Sint Pancras');
