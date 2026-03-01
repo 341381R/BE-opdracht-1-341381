@@ -8,13 +8,19 @@ CREATE PROCEDURE SP_SorteerAllergenen(
 BEGIN
 
     SELECT   ALGE.Id
-            ,ALGE.Naam
+            ,PROD.Naam          AS ProductNaam
+            ,ALGE.Naam          AS AllergeenNaam
             ,ALGE.Omschrijving
+            ,MAGA.AantalAanwezig
     FROM Allergeen AS ALGE
+    INNER JOIN ProductPerAllergeen AS PPAN
+    ON ALGE.Id = PPAN.AllergeenId
+    INNER JOIN Product AS PROD
+    ON PROD.Id = PPAN.AllergeenId
+    INNER JOIN Magazijn AS MAGA
+    ON PROD.Id = MAGA.ProductId
     WHERE p_categorie = ALGE.Naam
     ORDER BY ALGE.Naam;
-    
-
 END$$
 
 DELIMITER ;
