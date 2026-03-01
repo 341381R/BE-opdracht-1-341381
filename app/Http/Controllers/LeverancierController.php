@@ -88,6 +88,22 @@ class LeverancierController extends Controller
         ]);
     }
 
+    public function LeverancierGegevens($id)
+    {
+        $leverancier = $this->leverancierModel->SP_LeverancierGegevens($id);
+
+        if (!$leverancier)
+        {
+            return redirect()->route('Leverancier.index')
+                             ->with('error', 'Leverancier is niet gevonden');  
+        }
+
+        return view('Leverancier.LeverancierInfo', [
+            'title' => 'Overzicht leverancier gegevens',
+            'leverancier' => $leverancier
+        ]);
+    }
+
     /**
      * Display the specified resource.
      */
