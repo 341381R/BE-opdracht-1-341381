@@ -139,6 +139,11 @@ class AllergeenController extends Controller
 
     public function categorie(Request $request)
     {
-        echo $request;
+        $allergenen = $this->allergeenModel->SP_SorteerAllergenen();
+        
+        return view('Allergenen.categorie', [
+            'title' => 'Allergeen',
+            'allergenen' => $allergenen
+        ]);
     }
 }

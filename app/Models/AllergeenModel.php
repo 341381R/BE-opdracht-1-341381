@@ -57,4 +57,12 @@ class AllergeenModel extends Model
 
         return $row->affected ?? 0;
     }
+
+    public function SP_SorteerAllergeen($naam)
+    {
+        return DB::select(
+            'CALL SP_SorteerAllergeen(:naam)',
+            ['naam' => $naam]
+        );
+    }
 }
