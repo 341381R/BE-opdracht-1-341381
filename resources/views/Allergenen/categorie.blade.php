@@ -55,7 +55,7 @@
                     <td>{{ $allergeen->Omschrijving }}</td>
                     <td>{{ $allergeen->AantalAanwezig }}</td>
                      <td>
-                        <form action="{{ route('Allergenen.show', $allergeen->Id) }}" method="POST">
+                        <form action="{{ Leverancier.LeverancierGegevens', $allergeen->Id) }}" method="POST">
                             @csrf
                             @method('GET')
                             <button type="submit" class="btn btn-warning btn-sm"><i class="bi bi-patch-question"></i></button>
