@@ -28,8 +28,8 @@
                     <option value="" disabled>
                         Selecteer allergeen
                     </option>
-                    @foreach ($allergeenNamen as $allergeen)
-                        <option value="{{ $allergeen->AllergeenNaam }}">{{ $allergeen->AllergeenNaam }}</option>
+                    @foreach ($namen as $naam)
+                        <option value="{{ $naam->Naam }}">{{ $naam->Naam }}</option>
                     @endforeach
                 </select>
                 <button type="submit" class="btn btn-secondary btn-sm">Maak selectie</button>
