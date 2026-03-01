@@ -136,4 +136,9 @@ class AllergeenController extends Controller
         return redirect()->route('Allergenen.index')
                          ->with('error', 'Allergeen is niet goed verwijderd.');
     }
+
+    public function categorie(Request $request)
+    {
+        echo $request;
+    }
 }
