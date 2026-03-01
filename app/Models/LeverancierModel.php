@@ -58,4 +58,12 @@ class LeverancierModel extends Model
         );
         return $row->affected ?? 0;
     }
+
+    public function SP_LeverancierGegevens($id)
+    {
+        return DB::select(
+            'CALL SP_GetLeverancuerGegevens(:id)',
+            ['id' => $id]
+        );
+    }
 }
