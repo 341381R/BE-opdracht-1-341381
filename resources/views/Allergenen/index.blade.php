@@ -23,18 +23,18 @@
         
         
         <div class="mt-3">
-            Allergeen:
-            <select name="Allergeen" id="AllergeenId">
-            <option value="">
-                Selecteer allergeen
-            </option>
-                @foreach ($allergenen as $allergeen)
-                    <option value="{{ $allergeen->Naam }}">{{ $allergeen->Naam }}</option>
-                @endforeach
-            </select>
-            <form action="{{ route('Allergenen.sort') }}" method="POST">
+            <form action="{{ route('Allergenen.categorie') }}" method="POST">
                 @csrf
                 @method('GET')
+                Allergeen:
+                <select name="Allergeen">
+                    <option value="" disabled>
+                        Selecteer allergeen
+                    </option>
+                    @foreach ($allergenen as $allergeen)
+                        <option value="{{ $allergeen->Naam }}">{{ $allergeen->Naam }}</option>
+                    @endforeach
+                </select>
                 <button type="submit" class="btn btn-secondary btn-sm">Maak selectie</button>
             </form>
         </div>

@@ -27,7 +27,7 @@ Route::put('Allergenen/{id}', [AllergeenController::class, 'update'])->name('All
 
 Route::get('Allergenen/{id}', [AllergeenController::class, 'show'])->name('Allergenen.show');
 
-Route::get('Allergenen/{categorie}', [AllergeenController::class, 'sort'])->name('Allergenen.sort');
+Route::get('Allergenen/{categorie}', [AllergeenController::class, 'categorie'])->name('Allergenen.categorie');
 
 Route::get('/Magazijn', [MagazijnController::class, 'index'])->name('Magazijn.index');
 
