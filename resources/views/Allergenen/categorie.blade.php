@@ -28,7 +28,7 @@
                     <option value="" disabled>
                         Selecteer allergeen
                     </option>
-                    @foreach ($allergenen as $allergeen)
+                    @foreach ($allergeenNamen as $allergeen)
                         <option value="{{ $allergeen->AllergeenNaam }}">{{ $allergeen->AllergeenNaam }}</option>
                     @endforeach
                 </select>
