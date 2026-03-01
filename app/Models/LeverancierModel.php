@@ -59,10 +59,10 @@ class LeverancierModel extends Model
         return $row->affected ?? 0;
     }
 
-    public function SP_LeverancierGegevens($id)
+    public function SP_GetLeverancierGegevens($id)
     {
         return DB::select(
-            'CALL SP_GetLeverancuerGegevens(:id)',
+            'CALL SP_GetLeverancierGegevens(:id)',
             ['id' => $id]
         );
     }

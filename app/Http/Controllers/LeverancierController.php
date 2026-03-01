@@ -90,7 +90,7 @@ class LeverancierController extends Controller
 
     public function LeverancierGegevens($id)
     {
-        $leverancier = $this->leverancierModel->SP_LeverancierGegevens($id);
+        $leverancier = $this->leverancierModel->SP_GetLeverancierGegevens($id);
 
         if (!$leverancier)
         {
