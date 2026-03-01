@@ -98,7 +98,7 @@ class LeverancierController extends Controller
                              ->with('error', 'Leverancier is niet gevonden');  
         }
 
-        return view('Leverancier.LeverancierInfo', [
+        return view('Leverancier.LeverancierGegevens', [
             'title' => 'Overzicht leverancier gegevens',
             'leverancier' => $leverancier
         ]);
