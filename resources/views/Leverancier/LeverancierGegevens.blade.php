@@ -42,6 +42,7 @@
                         <td>{{ $leverancierInfo->Huisnummer }}</td>
                         @else
                         <td colspan="3">Er zijn geen adresgegevens bekent</td>
+                        @endif
                     </tr>
                     @empty
                     <tr>
