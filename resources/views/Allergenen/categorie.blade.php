@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet"/>
     <title>Allergenen pagina</title>
 </head>
 <body>
@@ -57,7 +58,7 @@
                         <form action="{{ route('Allergenen.show', $allergeen->Id) }}" method="POST">
                             @csrf
                             @method('GET')
-                            <button type="submit" class="btn btn-warning btn-sm">Details</button>
+                            <button type="submit" class="btn btn-warning btn-sm"><i class="bi bi-patch-question"></i></button>
                         </form>
                     </td>
                 </tr>
