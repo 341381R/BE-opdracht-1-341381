@@ -8,45 +8,51 @@
         <title>Details</title>
     </head>
     <body>
-        <div class="container d-flex justify-content-center">
-            <div class="col-md-8">
-                <h2 class="mb-3">{{ $title }}</h2>
-                <table class="table">
-                    <tbody>
-                        <tr>
-                            <td>Naam</td>
-                            <td>{{ $leverancier->Naam }}</td>
-                        </tr>
-                        <tr>
-                            <td>Contactpersoon</td>
-                            <td>{{ $leverancier->ContactPersoon }}</td>
-                        </tr>
-                        <tr>
-                            <td>Leveranciernummer</td>
-                            <td>{{ $leverancier->LeverancierNummer }}</td>
-                        </tr>
-                        <tr>
-                            <td>Mobiel</td>
-                            <td>{{ $leverancier->Mobiel }}</td>
-                        </tr>
-                        <tr>
-                            <td>Straatnaam</td>
-                            <td>{{ $leverancier->Straat }}</td>
-                        </tr>
-                        <tr>
-                            <td>Huisnummer</td>
-                            <td>{{ $leverancier->Huisnummer }}</td>
-                        </tr>
-                        <tr>
-                            <td>Postcode</td>
-                            <td>{{ $leverancier->Postcode }}</td>
-                        </tr>
-                        <tr>
-                            <td>Stad</td>
-                            <td>{{ $leverancier->Stad }}</td>
-                        </tr>
-                    </tbody>
-                </table>
+            <div class="container">
+
+            <h1>{{ $title }}</h1>
+        
+            @if (session('success'))
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    {{ session('success') }} 
+                    <button type="button" class="btn-close" aria-label="sluiten" data-bs-dismiss="alert"></button>
+                </div>
+                <meta http-equiv="refresh" content="3;url={{ route('Leverancier.index') }}">
+                @endif
+        
+            <table class="table">
+                <thead>
+                    <th>Naam</th>
+                    <th>Contactpersoon</th>
+                    <th>Mobiel</th>
+                    <th>Stad</th>
+                    <th>Straat</th>
+                    <th>Huisnummer</th>
+                </thead>
+                <tbody>
+                    
+                    @forelse ($leverancier as $leverancierInfo)
+                    <tr>
+                        <td>{{ $leverancierInfo->Naam }}</td>
+                        <td>{{ $leverancierInfo->ContactPersoon }}</td>
+                        <td>{{ $leverancierInfo->Mobiel }}</td>
+                        @if ($leverancierInfo->Stad != null && $leverancierInfo->Straat != null && $leverancierInfo->Huisnummer != null)
+                        <td>{{ $leverancierInfo->Stad }}</td>
+                        <td>{{ $leverancierInfo->Straat }}</td>
+                        <td>{{ $leverancierInfo->Huisnummer }}</td>
+                        @else
+                        <td colspan="3">Er zijn geen adresgegevens bekent</td>
+                    </tr>
+                    @empty
+                    <tr>
+                        <td colspan="3">Geen leveranciers gevonden</td>
+                    </tr>
+                    @endforelse
+                </tbody>
+            </table>
+
+            <div class="mt-3 d-flex">
+                        <a href="{{ route('home') }}" class="btn btn-secondary btn-sm ms-auto">Home</a>
             </div>
         </div>
     </body>

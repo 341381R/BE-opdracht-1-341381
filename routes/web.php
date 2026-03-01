@@ -43,9 +43,9 @@ Route::get('Leverancier/create', [LeverancierController::class, 'create'])->name
 
 Route::get('Leverancier/{id}/edit', [LeverancierController::class, 'edit'])->name('Leverancier.edit');
 
-Route::get('Leverancier/{id}', [LeverancierController::class, 'LeverancierInfo'])->name('Leverancier.LeverancierInfo');
+Route::get('Leverancier/{id}/info', [LeverancierController::class, 'LeverancierInfo'])->name('Leverancier.LeverancierInfo');
 
-Route::get('Leverancier/{id}', [LeverancierController::class, 'LeverancierGegevens'])->name('Leverancier.LeverancierGegevens');
+Route::get('Leverancier/{id}/gegevens', [LeverancierController::class, 'LeverancierGegevens'])->name('Leverancier.LeverancierGegevens');
 
 Route::put('Leverancier/{id}', [LeverancierController::class, 'update'])->name('Leverancier.update');
 
