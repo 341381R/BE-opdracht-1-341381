@@ -15,6 +15,8 @@ Route::get('/', function () {
 
 Route::get('/Allergenen', [AllergeenController::class, 'index'])->name('Allergenen.index');
 
+Route::get('Allergenen/categorie', [AllergeenController::class, 'categorie'])->name('Allergenen.categorie');
+
 Route::get('/Allergenen/create', [AllergeenController::class, 'create'])->name('Allergenen.create');
 
 Route::post('Allergenen', [AllergeenController::class, 'store'])->name('Allergenen.store');
@@ -26,8 +28,6 @@ Route::get('Allergenen/{id}/edit', [AllergeenController::class, 'edit'])->name('
 Route::put('Allergenen/{id}', [AllergeenController::class, 'update'])->name('Allergenen.update');
 
 Route::get('Allergenen/{id}', [AllergeenController::class, 'show'])->name('Allergenen.show');
-
-Route::get('Allergenen/categorie', [AllergeenController::class, 'categorie'])->name('Allergenen.categorie');
 
 Route::get('/Magazijn', [MagazijnController::class, 'index'])->name('Magazijn.index');
 
