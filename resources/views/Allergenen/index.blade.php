@@ -20,7 +20,26 @@
             @endif
     
         <a href="{{ route('Allergenen.create') }}" class="btn btn-primary mt-2">Nieuwe allergeen</a>
-    
+        
+        
+        <div class="mt-3">
+            Allergeen:
+            <select name="Allergeen" id="AllergeenId">
+            <option value="">
+                Selecteer allergeen
+            </option>
+                @foreach ($allergenen as $allergeen)
+                    <option value="{{ $allergeen->Naam }}">{{ $allergeen->Naam }}</option>
+                @endforeach
+            </select>
+            <form action="{{ route('Allergenen.sort') }}" method="POST">
+                @csrf
+                @method('GET')
+                <button type="submit" class="btn btn-tertairy btn-sm">Maak selectie</button>
+            </form>
+        </div>
+        
+
         <table class="table">
             <thead>
                 <th>Naam</th>
