@@ -25,7 +25,7 @@
                 @method('GET')
                 Allergeen:
                 <select name="Allergeen">
-                    <option value="" disabled>
+                    <option value="">
                         Selecteer allergeen
                     </option>
                     @foreach ($namen as $naam)
