@@ -15,9 +15,9 @@ class LeveringController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $leveringen = $this->leveringModel->SP_GetAllLeveringen(NULL , NULL);
+        $leveringen = $this->leveringModel->SP_GetAllLeveringen($request->input , NULL);
         
         return view('Levering.index', [
             'title' => 'Overzicht leveringen',

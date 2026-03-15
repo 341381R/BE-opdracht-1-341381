@@ -19,6 +19,16 @@
             <meta http-equiv="refresh" content="3;url={{ route('Levering.index') }}">
             @endif
 
+        <div class="mt-3">
+            <form action="{{ route('Levering.index') }}" method="POST">
+                @csrf
+                @method('GET')
+                Startdatum: <input type="date" name="startDatum">
+                einddatum: <input type="date" name="eindDatum">
+                <button type="submit" class="btn btn-secondary btn-sm">Maak selectie</button>
+            </form>
+        </div>
+
         <table class="table">
             <thead>
                 <th>Naam leverancier</th>
