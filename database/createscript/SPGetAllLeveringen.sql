@@ -20,8 +20,8 @@ BEGIN
     ON PPLC.ProductId = PROD.Id
     WHERE (p_StartDatum IS NULL OR PPLC.DatumLevering >= p_StartDatum) 
     AND (p_EindDatum IS NULL OR PPLC.DatumLevering <= p_EindDatum)
-    ORDER BY LVRC.Naam DESC
-    GROUP BY PROD.Naam;
+    GROUP BY PROD.Naam
+    ORDER BY LVRC.Naam DESC;
 
 END$$
 
