@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AllergeenController;
 use App\Http\Controllers\MagazijnController;
 use App\Http\Controllers\LeverancierController;
+use App\Http\Controllers\LeveringController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -49,7 +50,7 @@ Route::get('Leverancier/{id}/gegevens', [LeverancierController::class, 'Leveranc
 
 Route::put('Leverancier/{id}', [LeverancierController::class, 'update'])->name('Leverancier.update');
 
-Route::get('/Levering', [LeverancierController::class, 'index'])->name('Levering.index');
+Route::get('/Levering', [LeveringController::class, 'index'])->name('Levering.index');
 
 Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])

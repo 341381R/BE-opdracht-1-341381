@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\LeverancierController;
+use App\Models\LeveringModel;
 use Illuminate\Http\Request;
 
 class LeveringController extends Controller
