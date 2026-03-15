@@ -18,56 +18,25 @@
             </div>
             <meta http-equiv="refresh" content="3;url={{ route('Levering.index') }}">
             @endif
-    
-        <div class="mt-3">
-            <form action="{{ route('Allergenen.categorie') }}" method="POST">
-                @csrf
-                @method('GET')
-                Allergeen:
-                <select name="Allergeen">
-                    <option value="">
-                        Selecteer allergeen
-                    </option>
-                    @foreach ($allergenen as $allergeen)
-                        <option value="{{ $allergeen->Naam }}">{{ $allergeen->Naam }}</option>
-                    @endforeach
-                </select>
-                <button type="submit" class="btn btn-secondary btn-sm">Maak selectie</button>
-            </form>
-        </div>
-        
 
         <table class="table">
             <thead>
-                <th>Naam</th>
-                <th>Omschrijving</th>
-                <th>Verwijderen</th>
-                <th>Wijzigen</th>
-                <th>Details</th>
+                <th>Naam leverancier</th>
+                <th>ContactPersoon</th>
+                <th>Productnaam</th>
+                <th>Totaal geleverd</th>
+                <th>Specificatie</th>
             </thead>
             <tbody>
                 
-                @forelse ($allergenen as $allergeen)
+                @forelse ($leveringen as $levering)
                 <tr>
-                    <td>{{ $allergeen->Naam }}</td>
-                    <td>{{ $allergeen->Omschrijving }}</td>
-                    <td>
-                        <form action="{{ route('Allergenen.destroy', $allergeen->Id) }}" method="POST" 
-                        onsubmit="return confirm('weet u zeker dat u dit allergeen wilt verwijderen?');">
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit" class="btn btn-danger btn-sm">Verwijderen</button>
-                        </form>
-                    </td>
-                    <td>
-                        <form action="{{ route('Allergenen.edit', $allergeen->Id) }}" method="POST">
-                            @csrf
-                            @method('GET')
-                            <button type="submit" class="btn btn-success btn-sm">Wijzig</button>
-                        </form>
-                    </td>
+                    <td>{{ $levering->LeverancierNaam }}</td>
+                    <td>{{ $levering->ContactPersoon }}</td>
+                    <td>{{ $levering->ProductNaam }}</td>
+                    <td>{{ $levering->TotaalGeleverd }}</td>
                      <td>
-                        <form action="{{ route('Allergenen.show', $allergeen->Id) }}" method="POST">
+                        <form action="{{ route('Allergenen.show', $levering->Id) }}" method="POST">
                             @csrf
                             @method('GET')
                             <button type="submit" class="btn btn-warning btn-sm">Details</button>

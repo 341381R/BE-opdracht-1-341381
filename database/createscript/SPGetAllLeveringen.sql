@@ -10,8 +10,9 @@ BEGIN
 
     SELECT 	 LVRC.Id
 			,LVRC.Naam          AS LeverancierNaam
+            ,LVRC.ContactPersoon
             ,PROD.Naam          AS ProductNaam
-            ,SUM(PPLC.Aantal)   AS VerschillendeProducten
+            ,SUM(PPLC.Aantal)   AS TotaalGeleverd
 	FROM Leverancier AS LVRC    
     LEFT JOIN ProductPerLeverancier AS PPLC
     ON LVRC.Id = PPLC.LeverancierId
