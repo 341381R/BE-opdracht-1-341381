@@ -46,7 +46,7 @@ class LeveringController extends Controller
      */
     public function show(Request $request, $product)
     {
-        $leveringen = $this->leveringModel->SP_GetAllergeenById($request->input('startDatum'), $request->input('eindDatum'), $product);
+        $leveringen = $this->leveringModel->SP_ShowLevering($request->input('startDatum'), $request->input('eindDatum'), $product);
 
         if (!$leveringen)
         {

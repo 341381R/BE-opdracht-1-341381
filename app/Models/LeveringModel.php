@@ -17,4 +17,16 @@ class LeveringModel extends Model
             ]
         );
     }
+
+    public function SP_ShowLevering($beginDatum, $eindDatum, $product)
+    {
+        return DB::select(
+            'CALL SP_GetAllLeveringen(:beginDatum, :eindDatum, :product)',
+            [
+                'beginDatum' => $beginDatum,
+                'eindDatum' => $eindDatum,
+                'product' => $product
+            ]
+        );
+    }
 }
