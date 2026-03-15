@@ -23,8 +23,8 @@
             <form action="{{ route('Levering.index') }}" method="POST">
                 @csrf
                 @method('GET')
-                Startdatum: <input type="date" name="startDatum">
-                einddatum: <input type="date" name="eindDatum">
+                Startdatum: <input type="date" name="startDatum" value="{{ request('startDatum') }}">
+                einddatum: <input type="date" name="eindDatum" value="{{ request('eindDatum') }}">
                 <button type="submit" class="btn btn-secondary btn-sm">Maak selectie</button>
             </form>
         </div>

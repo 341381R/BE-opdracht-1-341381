@@ -17,7 +17,7 @@ class LeveringController extends Controller
      */
     public function index(Request $request)
     {
-        $leveringen = $this->leveringModel->SP_GetAllLeveringen($request->input , NULL);
+        $leveringen = $this->leveringModel->SP_GetAllLeveringen($request->input('startDatum'), $request->input('eindDatum'));
         
         return view('Levering.index', [
             'title' => 'Overzicht leveringen',
