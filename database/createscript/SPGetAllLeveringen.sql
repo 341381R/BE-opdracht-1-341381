@@ -1,0 +1,24 @@
+DROP PROCEDURE IF EXISTS SP_GetAllLeveringen;
+
+DELIMITER $$
+
+CREATE PROCEDURE SP_GetAllLeveringen(
+    IN p_StartDatum DATE,
+    IN p_EindDatum DATE
+)
+BEGIN
+
+    SELECT 	 LVRC.Id
+			,LVRC.Naam          AS LeverancierNaam
+            ,PROD.Naam          AS ProductNaam
+            ,SUM(PPLC.Aantal)   AS VerschillendeProducten
+	FROM Leverancier AS LVRC    
+    LEFT JOIN ProductPerLeverancier AS PPLC
+    ON LVRC.Id = PPLC.LeverancierId
+    WHERE (PPLC.p_StartDatum IS NULL OR PPLC.DatumLevering => p_StartDatum) 
+    AND (PPLC.p_EindDatum IS NULL OR PPLC.DatumLevering => p_EindDatum)
+    ORDER BY LVRC.Naam DESC;
+
+END$$
+
+DELIMITER ;
