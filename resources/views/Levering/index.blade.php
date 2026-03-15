@@ -16,12 +16,9 @@
                 {{ session('success') }} 
                 <button type="button" class="btn-close" aria-label="sluiten" data-bs-dismiss="alert"></button>
             </div>
-            <meta http-equiv="refresh" content="3;url={{ route('Allergenen.index') }}">
+            <meta http-equiv="refresh" content="3;url={{ route('Levering.index') }}">
             @endif
     
-        <a href="{{ route('Allergenen.create') }}" class="btn btn-primary mt-2">Nieuwe allergeen</a>
-        
-        
         <div class="mt-3">
             <form action="{{ route('Allergenen.categorie') }}" method="POST">
                 @csrf

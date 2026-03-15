@@ -15,8 +15,10 @@ BEGIN
 	FROM Leverancier AS LVRC    
     LEFT JOIN ProductPerLeverancier AS PPLC
     ON LVRC.Id = PPLC.LeverancierId
-    WHERE (PPLC.p_StartDatum IS NULL OR PPLC.DatumLevering >= p_StartDatum) 
-    AND (PPLC.p_EindDatum IS NULL OR PPLC.DatumLevering <= p_EindDatum)
+    INNER JOIN Product AS PROD
+    ON PPLC.ProductId = PROD.Id
+    WHERE (p_StartDatum IS NULL OR PPLC.DatumLevering >= p_StartDatum) 
+    AND (p_EindDatum IS NULL OR PPLC.DatumLevering <= p_EindDatum)
     ORDER BY LVRC.Naam DESC;
 
 END$$

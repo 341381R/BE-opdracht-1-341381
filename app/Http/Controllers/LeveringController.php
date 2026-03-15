@@ -19,7 +19,7 @@ class LeveringController extends Controller
     {
         $leveringen = $this->leveringModel->SP_GetAllLeveringen(NULL , NULL);
         
-        return view('Leveringen.index', [
+        return view('Levering.index', [
             'title' => 'Overzicht leveringen',
             'leveringen' => $leveringen
         ]);
