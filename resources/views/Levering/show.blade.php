@@ -14,33 +14,36 @@
                 <div class="card shadow-sm">
                     <div class="card-body">
                         <dl class="row">
-                            <dt class="col-sm-3">Naam</dt>
-                            <dd class="col-sm-9">{{ $allergeen->Naam}}</dd>
+                            <dt class="col-sm-3">Startdatum</dt>
+                            <dd class="col-sm-9">{{ $leveringen[0]->StartDatum}}</dd>
 
-                            <dt class="col-sm-3">Omschrijving</dt>
-                            <dd class="col-sm-9">{{ $allergeen->Omschrijving}}</dd>
+                            <dt class="col-sm-3">Einddatum</dt>
+                            <dd class="col-sm-9">{{ $leveringen[0]->EindDatum}}</dd>
 
-                            <dt class="col-sm-3">Datum gewijzigd</dt>
-                            <dd class="col-sm-9">{{ $allergeen->DatumGewijzigd}}</dd>
+                            <dt class="col-sm-3">Productnaam</dt>
+                            <dd class="col-sm-9">{{ $leveringen[0]->ProductNaam}}</dd>
+
+                            <dt class="col-sm-3">Allergenen</dt>
+                            <dd class="col-sm-9">{{ $leveringen[0]->Allergenen}}</dd>
                         </dl>
                     </div>
                 </div> 
 
-                <div class="mt-3 d-flex gap-2">
-                    <form action="{{ route('Allergenen.edit', $allergeen->Id) }}" method="POST">
-                        @csrf
-                        @method('GET')
-                        <button type="submit" class="btn btn-success btn-sm">Wijzig</button>
-                    </form>
-                
-                    <form action="{{ route('Allergenen.destroy', $allergeen->Id) }}" method="POST" 
-                        onsubmit="return confirm('Weet je zeker dat je dit allergeen wilt verwijderen?');">
-                        @csrf
-                        @method('DELETE')
-                        <button type="submit" class="btn btn-danger btn-sm">Verwijderen</button>
-                    </form>
-                    <a href="{{ route('Allergenen.index') }}" class="btn btn-secondary btn-sm ms-auto">Terug</a>
-                </div>
+                <table class="table">
+                    <thead>
+                        <th>Datum levering</th>
+                        <th>Aantal</th>
+                    </thead>
+                    <tbody>
+                        
+                        @foreach ($leveringen as $levering)
+                        <tr>
+                            <td>{{ $levering->DatumLevering }}</td>
+                            <td>{{ $levering->Aantal }}</td>
+                        </tr>
+                        @endforeach
+                    </tbody>
+                </table>
             </div>
         </div>
     </body>
