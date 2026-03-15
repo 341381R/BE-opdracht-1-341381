@@ -52,7 +52,7 @@ Route::put('Leverancier/{id}', [LeverancierController::class, 'update'])->name('
 
 Route::get('/Levering', [LeveringController::class, 'index'])->name('Levering.index');
 
-Route::get('Levering/{id}', [LeveringController::class, 'show'])->name('Levering.show');
+Route::get('Levering/{product}', [LeveringController::class, 'show'])->name('Levering.show');
 
 Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])

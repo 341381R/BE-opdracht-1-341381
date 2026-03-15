@@ -47,7 +47,7 @@
                     <td>{{ $levering->ProductNaam }}</td>
                     <td>{{ $levering->TotaalGeleverd }}</td>
                      <td>
-                        <form action="{{ route('Allergenen.show', $levering->Id) }}" method="POST">
+                        <form action="{{ route('Levering.show', $levering->ProductNaam) }}" method="POST">
                             @csrf
                             @method('GET')
                             <button type="submit" class="btn btn-warning btn-sm"><i class="bi bi-patch-question"></i></button>
