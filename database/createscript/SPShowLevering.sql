@@ -4,7 +4,7 @@ DELIMITER $$
 
 CREATE PROCEDURE SP_ShowLevering(
     IN p_StartDatum DATE,
-    IN p_EindDatum DATE
+    IN p_EindDatum DATE,
     IN p_product INT
 )
 BEGIN
