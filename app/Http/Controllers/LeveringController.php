@@ -44,9 +44,20 @@ class LeveringController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(LeverancierController $leverancierController)
+    public function show(Request $request, $product)
     {
-        //
+        $leveringen = $this->leveringModel->SP_GetAllergeenById($request->input('startDatum'), $request->input('eindDatum'), $product);
+
+        if (!$leveringen)
+        {
+            return redirect()->route('Levering.index')
+                             ->with('error', 'Product is niet gevonden');  
+        }
+
+        return view('Levering.show', [
+            'title' => 'Specificatie geleverde product',
+            'leveringen' => $leveringen
+        ]);
     }
 
     /**
