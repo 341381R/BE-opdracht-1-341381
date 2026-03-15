@@ -7,12 +7,22 @@ use Illuminate\Http\Request;
 
 class LeveringController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->leveringModel = new LeveringModel();
+    }
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //
+        $leveringen = $this->leveringModel->SP_GetAllAllergenen();
+        
+        return view('Leveringen.index', [
+            'title' => 'Overzicht leveringen',
+            'leveringen' => $leveringen
+        ]);
     }
 
     /**
