@@ -49,6 +49,8 @@ Route::get('Leverancier/{id}/gegevens', [LeverancierController::class, 'Leveranc
 
 Route::put('Leverancier/{id}', [LeverancierController::class, 'update'])->name('Leverancier.update');
 
+Route::get('/Levering', [LeverancierController::class, 'index'])->name('Levering.index');
+
 Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])
     ->name('dashboard');
