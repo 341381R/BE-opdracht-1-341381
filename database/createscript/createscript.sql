@@ -250,3 +250,34 @@ VALUES
 ,(5, 12, "2023-04-11", 45, NULL)
 ,(5, 13, "2023-04-12", 23, NULL)
 ,(7, 14, "2023-04-14", 20, NULL);
+
+
+DROP TABLE IF EXISTS ProductEinddatumLevering;
+
+CREATE TABLE IF NOT EXISTS ProductEinddatumLevering
+(
+     Id                                 INT             UNSIGNED    NOT NULL        AUTO_INCREMENT
+    ,ProductId                          INT             UNSIGNED    NOT NULL
+    ,EinddatumLevering                  DATE                            NULL
+    ,IsActief                           BIT                         NOT NULL        DEFAULT 1
+    ,Opmerking                          VARCHAR(255)                    NULL        DEFAULT NULL
+    ,DatumAangemaakt                    DATETIME(6)                 NOT NULL        DEFAULT (SYSDATE(6))
+    ,DatumGewijzigd                     DATETIME(6)                 NOT NULL        DEFAULT (SYSDATE(6))
+    ,CONSTRAINT                         PK_ProductPerLeverancier_Id             PRIMARY KEY     CLUSTERED(Id)
+    ,FOREIGN KEY(ProductId)             REFERENCES Product(Id)
+) ENGINE=InnoDB;
+
+INSERT INTO ProductEinddatumLevering
+(
+      ProductId
+     ,EinddatumLevering
+)
+VALUES
+ (1, "2024-06-01")
+ ,(2, "2024-05-22")
+ ,(3, "2024-05-30")
+ ,(4, "2024-05-12")
+ ,(7, "2024-05-27")
+ ,(10, "2024-05-03")
+ ,(11, "2024-02-09")
+ ,(14, "2024-01-01");
