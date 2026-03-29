@@ -15,26 +15,33 @@
                     <div class="card-body">
                         <dl class="row">
                             <dt class="col-sm-3">Naam</dt>
-                            <dd class="col-sm-9">{{ $allergeen->Naam}}</dd>
+                            <dd class="col-sm-9">{{ $product->Naam}}</dd>
 
-                            <dt class="col-sm-3">Omschrijving</dt>
-                            <dd class="col-sm-9">{{ $allergeen->Omschrijving}}</dd>
+                            <dt class="col-sm-3">Barcode</dt>
+                            <dd class="col-sm-9">{{ $product->Barcode}}</dd>
 
-                            <dt class="col-sm-3">Datum gewijzigd</dt>
-                            <dd class="col-sm-9">{{ $allergeen->DatumGewijzigd}}</dd>
+                            <dt class="col-sm-3">Bevat gluten</dt>
+                            <dd class="col-sm-9">{{ $product->BevatGluten}}</dd>
+                            
+                            <dt class="col-sm-3">Bevat gelatine</dt>
+                            <dd class="col-sm-9">{{ $product->BevatGelatine}}</dd>
+                            
+                            <dt class="col-sm-3">Bevat AZO-kleurstof</dt>
+                            <dd class="col-sm-9">{{ $product->BevatAZO_kleurstof}}</dd>
+
+                            <dt class="col-sm-3">Bevat lactose</dt>
+                            <dd class="col-sm-9">{{ $product->BevatLactose}}</dd>
+
+                            <dt class="col-sm-3">Bevat gluten</dt>
+                            <dd class="col-sm-9">{{ $product->BevatSoja}}</dd>
                         </dl>
                     </div>
                 </div> 
 
                 <div class="mt-3 d-flex gap-2">
-                    <form action="{{ route('Allergenen.edit', $allergeen->Id) }}" method="POST">
-                        @csrf
-                        @method('GET')
-                        <button type="submit" class="btn btn-success btn-sm">Wijzig</button>
-                    </form>
                 
-                    <form action="{{ route('Allergenen.destroy', $allergeen->Id) }}" method="POST" 
-                        onsubmit="return confirm('Weet je zeker dat je dit allergeen wilt verwijderen?');">
+                    <form action="{{ route('Product.destroy', $product->Id) }}" method="POST" 
+                        onsubmit="return confirm('Weet je zeker dat je dit product wilt verwijderen?');">
                         @csrf
                         @method('DELETE')
                         <button type="submit" class="btn btn-danger btn-sm">Verwijderen</button>
