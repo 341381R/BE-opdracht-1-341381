@@ -44,6 +44,7 @@
                         onsubmit="return confirm('Weet je zeker dat je dit product wilt verwijderen?');">
                         @csrf
                         @method('DELETE')
+                        <input type="hidden" name="datum" value="{{ $product->EinddatumLevering }}">
                         <button type="submit" class="btn btn-danger btn-sm">Verwijderen</button>
                     </form>
                     <a href="{{ route('Allergenen.index') }}" class="btn btn-secondary btn-sm ms-auto">Terug</a>
