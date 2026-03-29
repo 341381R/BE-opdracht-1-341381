@@ -57,6 +57,8 @@ Route::get('Levering/{product}', [LeveringController::class, 'show'])->name('Lev
 
 Route::get('/Product', [ProductController::class, 'index'])->name('Product.index');
 
+Route::delete('Product/{id}', [ProductController::class, 'destroy'])->name('Product.destroy');
+
 Route::get('Product/{id}', [ProductController::class, 'show'])->name('Product.show');
 
 Route::view('dashboard', 'dashboard')
