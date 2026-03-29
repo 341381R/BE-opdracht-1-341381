@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Allergenen pagina</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet"/>
+    <title>product pagina</title>
 </head>
 <body>
     <div class="container">
@@ -16,70 +17,44 @@
                 {{ session('success') }} 
                 <button type="button" class="btn-close" aria-label="sluiten" data-bs-dismiss="alert"></button>
             </div>
-            <meta http-equiv="refresh" content="3;url={{ route('Allergenen.index') }}">
+            <meta http-equiv="refresh" content="3;url={{ route('Levering.index') }}">
             @endif
-    
-        <a href="{{ route('Allergenen.create') }}" class="btn btn-primary mt-2">Nieuwe allergeen</a>
-        
-        
+
         <div class="mt-3">
-            <form action="{{ route('Allergenen.categorie') }}" method="POST">
+            <form action="{{ route('Product.index') }}" method="POST">
                 @csrf
                 @method('GET')
-                Allergeen:
-                <select name="Allergeen">
-                    <option value="">
-                        Selecteer allergeen
-                    </option>
-                    @foreach ($allergenen as $allergeen)
-                        <option value="{{ $allergeen->Naam }}">{{ $allergeen->Naam }}</option>
-                    @endforeach
-                </select>
+                Startdatum: <input type="date" name="startDatum" value="{{ request('startDatum') }}">
+                einddatum: <input type="date" name="eindDatum" value="{{ request('eindDatum') }}">
                 <button type="submit" class="btn btn-secondary btn-sm">Maak selectie</button>
             </form>
         </div>
-        
 
         <table class="table">
             <thead>
-                <th>Naam</th>
-                <th>Omschrijving</th>
-                <th>Verwijderen</th>
-                <th>Wijzigen</th>
-                <th>Details</th>
+                <th>Naam leverancier</th>
+                <th>ContactPersoon</th>
+                <th>Stad</th>
+                <th>Productnaam</th>
+                <th>Einddatum levering</th>
+                <th>Verwijder</th>
             </thead>
             <tbody>
                 
-                @forelse ($allergenen as $allergeen)
+                @forelse ($producten as $product)
                 <tr>
-                    <td>{{ $allergeen->Naam }}</td>
-                    <td>{{ $allergeen->Omschrijving }}</td>
-                    <td>
-                        <form action="{{ route('Allergenen.destroy', $allergeen->Id) }}" method="POST" 
-                        onsubmit="return confirm('weet u zeker dat u dit allergeen wilt verwijderen?');">
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit" class="btn btn-danger btn-sm">Verwijderen</button>
-                        </form>
-                    </td>
-                    <td>
-                        <form action="{{ route('Allergenen.edit', $allergeen->Id) }}" method="POST">
-                            @csrf
-                            @method('GET')
-                            <button type="submit" class="btn btn-success btn-sm">Wijzig</button>
-                        </form>
-                    </td>
+                    <td>{{ $product->LeverancierNaam }}</td>
+                    <td>{{ $product->ContactPersoon }}</td>
+                    <td>{{ $product->Stad }}</td>
+                    <td>{{ $product->ProductNaam }}</td>
+                    <td>{{ $product->EinddatumLevering }}</td>
                      <td>
-                        <form action="{{ route('Allergenen.show', $allergeen->Id) }}" method="POST">
-                            @csrf
-                            @method('GET')
-                            <button type="submit" class="btn btn-warning btn-sm">Details</button>
-                        </form>
+                        knop
                     </td>
                 </tr>
                 @empty
                 <tr>
-                    <td colspan="3">Geen Allergenen gevonden</td>
+                    <td colspan="3">Er zijn geen leveringen geweest van producten in deze periode</td>
                 </tr>
                 @endforelse
             </tbody>
