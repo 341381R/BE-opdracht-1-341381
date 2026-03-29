@@ -57,6 +57,8 @@ Route::get('Levering/{product}', [LeveringController::class, 'show'])->name('Lev
 
 Route::get('/Product', [ProductController::class, 'index'])->name('Product.index');
 
+Route::get('Product/{product}', [ProductController::class, 'show'])->name('Product.show');
+
 Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])
     ->name('dashboard');
