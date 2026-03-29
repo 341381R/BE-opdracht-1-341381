@@ -25,6 +25,7 @@ BEGIN
     ON PROD.Id = PELG.ProductId
     WHERE (p_StartDatum IS NULL OR PELG.EinddatumLevering >= p_StartDatum) 
     AND (p_EindDatum IS NULL OR PELG.EinddatumLevering <= p_EindDatum)
+    GROUP BY PROD.Naam
     ORDER BY PELG.EinddatumLevering DESC;
 
 END$$
