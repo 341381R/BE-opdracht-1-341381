@@ -8,6 +8,7 @@ CREATE PROCEDURE SP_GetProductById(
 BEGIN
 
     SELECT 	 PROD.Id
+            ,PROD.Naam
             ,PROD.Barcode
 			,FN_CheckAllergeen(p_id, 1) AS BevatGluten
 			,FN_CheckAllergeen(p_id, 2) AS BevatGelatine
