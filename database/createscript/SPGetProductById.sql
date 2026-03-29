@@ -9,11 +9,11 @@ BEGIN
 
     SELECT 	 PROD.Id
             ,PROD.Barcode
-			,CALL SP_CheckAllergeen(p_id, 1)
-			,CALL SP_CheckAllergeen(p_id, 2)
-			,CALL SP_CheckAllergeen(p_id, 3)
-			,CALL SP_CheckAllergeen(p_id, 4)
-			,CALL SP_CheckAllergeen(p_id, 5)
+			,SP_CheckAllergeen(p_id, 1)
+			,SP_CheckAllergeen(p_id, 2)
+			,SP_CheckAllergeen(p_id, 3)
+			,SP_CheckAllergeen(p_id, 4)
+			,SP_CheckAllergeen(p_id, 5)
 	FROM Product AS PROD    
     WHERE PROD.Id = p_id;
 
