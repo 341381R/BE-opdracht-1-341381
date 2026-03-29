@@ -10,9 +10,14 @@ class ProductController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        $producten = $this->productModel->SP_GetAllProductsByDate($request->input('startDatum'), $request->input('eindDatum'));
+        
+        return view('Levering.index', [
+            'title' => 'Overzicht producten uit het assortiment',
+            'producten' => $producten
+        ]);
     }
 
     /**
