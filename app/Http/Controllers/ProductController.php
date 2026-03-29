@@ -47,9 +47,20 @@ class ProductController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(ProductModel $productModel)
+    public function show($id)
     {
-        //
+        $product = $this->productModel->SP_GetProductById($id);
+
+        if (!$product)
+        {
+            return redirect()->route('Product.index')
+                             ->with('error', 'Product is niet gevonden');  
+        }
+
+        return view('Product.show', [
+            'title' => 'Product',
+            'product' => $product
+        ]);
     }
 
     /**
