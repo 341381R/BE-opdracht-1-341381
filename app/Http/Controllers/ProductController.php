@@ -82,8 +82,17 @@ class ProductController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(ProductModel $productModel)
+    public function destroy($id)
     {
-        //
+        $result = $this->productModel->SP_DeleteProduct($id);
+
+        if ($result > 0)
+        {
+            return redirect()->route('Product.index')
+                             ->with('success', 'Product is succesvol verwijderd');
+        }
+
+        return redirect()->route('Product.index')
+                         ->with('error', 'Product is niet goed verwijderd.');
     }
 }
