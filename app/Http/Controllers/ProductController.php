@@ -22,7 +22,7 @@ class ProductController extends Controller
     {
         $producten = $this->productModel->SP_GetAllProductsByDate($request->input('startDatum'), $request->input('eindDatum'));
         
-        return view('Levering.index', [
+        return view('Product.index', [
             'title' => 'Overzicht producten uit het assortiment',
             'producten' => $producten
         ]);

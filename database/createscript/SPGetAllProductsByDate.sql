@@ -9,9 +9,10 @@ CREATE PROCEDURE SP_GetAllProductsByDate(
 BEGIN
 
     SELECT 	 PROD.Id
-			,LVRC.Naam          AS LeverancierNaam
+			,LVRC.Naam              AS LeverancierNaam
+            ,LVRC.ContactPersoon
             ,CNTC.Stad
-            ,PROD.Naam          AS ProductNaam
+            ,PROD.Naam              AS ProductNaam
             ,PELG.EinddatumLevering
 	FROM Product AS PROD    
     INNER JOIN ProductPerLeverancier AS PPLC
