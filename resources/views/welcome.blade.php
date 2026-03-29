@@ -28,6 +28,7 @@
                     <a href="{{ route('Magazijn.index')}}" class="dark:text-[#EDEDEC]">magazijn</a>
                     <a href="{{ route('Leverancier.index')}}" class="dark:text-[#EDEDEC]">leverancier</a>
                     <a href="{{ route('Levering.index')}}" class="dark:text-[#EDEDEC]">leveringen</a>
+                    <a href="{{ route('Product.index')}}" class="dark:text-[#EDEDEC]">producten</a>
                     @auth
                         <a
                             href="{{ url('/dashboard') }}"
