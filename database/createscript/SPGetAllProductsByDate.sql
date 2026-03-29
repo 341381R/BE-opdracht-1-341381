@@ -21,7 +21,7 @@ BEGIN
     INNER JOIN Contact AS CNTC
     ON CNTC.Id = LVRC.ContactId
     INNER JOIN ProductEinddatumLevering AS PELG
-    ON PROD.Id = ProductEinddatumLevering.ProductId
+    ON PROD.Id = PELG.ProductId
     WHERE (p_StartDatum IS NULL OR PELG.EinddatumLevering >= p_StartDatum) 
     AND (p_EindDatum IS NULL OR PELG.EinddatumLevering <= p_EindDatum)
     ORDER BY PELG.EinddatumLevering DESC;
