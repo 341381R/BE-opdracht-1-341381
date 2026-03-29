@@ -9,11 +9,11 @@ BEGIN
 
     SELECT 	 PROD.Id
             ,PROD.Barcode
-			,SP_CheckAllergeen(p_id, 1)
-			,SP_CheckAllergeen(p_id, 2)
-			,SP_CheckAllergeen(p_id, 3)
-			,SP_CheckAllergeen(p_id, 4)
-			,SP_CheckAllergeen(p_id, 5)
+			,FN_CheckAllergeen(p_id, 1) AS BevatGluten
+			,FN_CheckAllergeen(p_id, 2) AS BevatGelatine
+			,FN_CheckAllergeen(p_id, 3) AS BevatAZO_kleurstof
+			,FN_CheckAllergeen(p_id, 4) AS BevatLactose
+			,FN_CheckAllergeen(p_id, 5) AS BevatSoja
 	FROM Product AS PROD    
     WHERE PROD.Id = p_id;
 
