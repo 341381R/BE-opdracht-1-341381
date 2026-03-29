@@ -13,7 +13,7 @@ BEGIN
             INNER JOIN ProductPerAllergeen AS PPAN 
             ON ALGE.Id = PPAN.AllergeenId
             WHERE PPAN.ProductId = p_id
-            AND ALGE.Id = 1
+            AND ALGE.Id = AllergeenId
             ) THEN "Ja" ELSE "Nee" END AS Resultaat;
     END $$
     DELIMITER ;
