@@ -49,7 +49,7 @@
                     <td>{{ $product->ProductNaam }}</td>
                     <td>{{ $product->EinddatumLevering }}</td>
                      <td>
-                        <form action="{{ route('Product.show', $product->ProductNaam) }}" method="POST">
+                        <form action="{{ route('Product.show', $product->Id) }}" method="POST">
                             @csrf
                             @method('GET')
                             <button type="submit" class="btn btn-danger btn-sm"><i class="bi bi-x-lg"></i></button>
