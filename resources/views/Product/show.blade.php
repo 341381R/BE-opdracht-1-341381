@@ -11,6 +11,22 @@
             <div class="col-md-8">
                 <h2 class="mb-3">{{ $title }}</h2>
 
+                @if (session('success'))
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        {{ session('success') }} 
+                        <button type="button" class="btn-close" aria-label="sluiten" data-bs-dismiss="alert"></button>
+                    </div>
+                    <meta http-equiv="refresh" content="3;url={{ route('Allergenen.index') }}">
+                @endif
+
+                @if(session('error'))
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        {{ session('error') }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="sluiten"></button>
+                    </div>
+                    <meta http-equiv="refresh" content="3;url={{ route('Product.index') }}">
+                @endif
+
                 <div class="card shadow-sm">
                     <div class="card-body">
                         <dl class="row">
