@@ -17,4 +17,12 @@ class ProductModel extends Model
             ]
         );
     }
+
+    public function SP_GetProductById($id)
+    {
+        return DB::selectOne(
+            'CALL SP_GetProductById(:id)',
+            ['id' => $id]
+        );
+    }
 }
