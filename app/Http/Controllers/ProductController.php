@@ -82,17 +82,23 @@ class ProductController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy($id)
+    public function destroy(Request $request, $id)
     {
+        if ($request->input('datum') >= date('Y-m-d'))
+        {
+            return redirect()->route('Product.show', ['id' => $id])
+                             ->with('error', 'Product kan niet worden verwijderd, datum van vandaag ligt voor einddatum levering.');
+        }
+
         $result = $this->productModel->SP_DeleteProduct($id);
 
         if ($result > 0)
         {
-            return redirect()->route('Product.index')
+            return redirect()->route('Product.show', ['id' => $id])
                              ->with('success', 'Product is succesvol verwijderd');
         }
 
-        return redirect()->route('Product.index')
+        return redirect()->route('Product.show', ['id' => $id])
                          ->with('error', 'Product is niet goed verwijderd.');
     }
 }
