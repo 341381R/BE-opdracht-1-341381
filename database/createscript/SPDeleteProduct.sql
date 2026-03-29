@@ -8,7 +8,7 @@ CREATE PROCEDURE SP_DeleteProduct(
 
 BEGIN
 
-    START TRANSACTION
+    START TRANSACTION;
     DELETE FROM ProductPerAllergeen AS PPAN
     WHERE p_id = PPAN.ProductId;
     
