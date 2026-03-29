@@ -3,8 +3,8 @@ DROP FUNCTION IF EXISTS FN_CheckAllergeen;
 DELIMITER $$
 
 CREATE FUNCTION FN_CheckAllergeen(
-	ProductId INT,
-	AllergeenId INT
+	p_ProductId INT,
+	p_AllergeenId INT
 )
 RETURNS VARCHAR(3)
 DETERMINISTIC
@@ -15,8 +15,8 @@ BEGIN
             Allergeen AS ALGE
             INNER JOIN ProductPerAllergeen AS PPAN 
             ON ALGE.Id = PPAN.AllergeenId
-            WHERE PPAN.ProductId = p_id
-            AND ALGE.Id = AllergeenId
+            WHERE PPAN.ProductId = p_ProductId
+            AND ALGE.Id = p_AllergeenId
             ) THEN "Ja" ELSE "Nee" END;
             return Resultaat;
     END $$
